@@ -1,0 +1,48 @@
+chunk_size=256,
+chunk_overlap=50
+topK_doc_count = 4
+内容精度context_precisions= [0.9999999999666667, 0.0]
+内容召回context_recalls= [1.0, 1.0]
+FAISS 向量检索评估结果： {'faithfulness': 1.0000, 'answer_relevancy': 0.9897, 'context_recall': 1.0000, 'context_precision': 0.5000} 
+f1分数： 0.6666666666518518
+内容精度context_precisions= [0.49999999998333333, 0.0]
+内容召回context_recalls= [1.0, 0.0]
+混合检索mix_retriever评估结果： {'faithfulness': 1.0000, 'answer_relevancy': 0.9498, 'context_recall': 0.5000, 'context_precision': 0.2500}  
+f1分数： 0.3333333333259259
+内容精度context_precisions= [0.9999999999666667, 0.0]
+内容召回context_recalls= [0.6666666666666666, 0.0]
+compression_retriever评估结果： {'faithfulness': 0.9643, 'answer_relevancy': 0.8309, 'context_recall': 0.3333, 'context_precision': 0.5000}  ，f1分数： 0.3999999999946667
+
+
+chunk_size=512,
+chunk_overlap=100
+topK_doc_count = 4
+内容精度context_precisions= [0.99999999995, 0.0]
+内容召回context_recalls= [1.0, 0.0]
+FAISS 向量检索评估结果： {'faithfulness': 1.0000, 'answer_relevancy': 0.9073, 'context_recall': 0.5000, 'context_precision': 0.5000} 
+f1分数： 0.4999999999875
+内容精度context_precisions= [0.499999999975, 0.0]
+内容召回context_recalls= [1.0, 0.0]
+混合检索mix_retriever评估结果： {'faithfulness': 0.9444, 'answer_relevancy': 0.8601, 'context_recall': 0.5000, 'context_precision': 0.2500}  
+f1分数： 0.3333333333222222
+内容精度context_precisions= [0.99999999995, 0.0]
+内容召回context_recalls= [0.3333333333333333, 0.0]
+compression_retriever评估结果： {'faithfulness': nan, 'answer_relevancy': 0.9116, 'context_recall': 0.1667, 'context_precision': 0.5000}  ，f1分数： 0.249999999996875
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

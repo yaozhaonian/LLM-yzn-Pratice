@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+langchain_community
+supervisor
+langchain
+openai
+requests
+pandas
+pymysql
+python-multipart

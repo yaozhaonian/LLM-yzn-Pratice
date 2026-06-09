@@ -1,0 +1,50 @@
+# e:\py-file\my-lib\pyproject.toml
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-models"
+version = "0.1.0"
+description = "RAG 通用模型接口封装，支持 Ollama、阿里云百炼、OpenAI"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your@email.com"}
+]
+keywords = ["rag", "llm", "embedding", "ollama", "chromadb"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+# 依赖项
+dependencies = [
+    "langchain-core>=0.2.0",
+    "langchain-ollama>=0.1.0",
+    "openai>=1.0.0",
+    "chromadb>=0.4.0",
+]
+
+# 可选依赖
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourname/rag-models"
+Repository = "https://github.com/yourname/rag-models.git"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rag_models*"]
