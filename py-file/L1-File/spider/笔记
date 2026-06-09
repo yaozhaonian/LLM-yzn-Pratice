@@ -1,0 +1,87 @@
+第一：
+url (俗称网址)
+协议：http/https
+域名:www.baidu.com
+端口:默认80
+路径:/s    直到遇到'?'为止
+查询参数:   wd=money
+
+https://ww.baidu.com/s?wd=money
+
+第二：
+请求协议格式[浏览器组装]
+
+"
+请求首行
+请求头
+    请求头1 (k:v)
+    请求头2 (k:v)
+    请求头n... (k:v)
+空行
+请求体(放数据)
+
+"
+"
+案例：
+https://www.baidu.com/s?wd=money
+"
+"
+get s?wd=money https/1.1
+host:www.baidu.com
+accept: text/plain/img/html/xml/json/*
+user-agent:Win/Chrome
+空行
+
+
+post s?wd=money https/1.1
+host:www.baidu.com
+accept: text/plain/img/html/xml/json/*
+user-agent:Win/Chrome
+空行
+user=yuan&pwd=123456
+
+
+
+"
+
+get请求和post请求
+
+
+
+响应协议格式[服务器应用程序组装]
+
+响应首行
+响应头
+响应体
+
+https/1.1 200(状态码) ok
+content-length: xx
+content-date:年月日时分秒
+content-type:text/html;charset=utf-8
+
+数据(html/json/image等)
+
+
+状态码：
+1开头    进行
+2开头    成功
+3开头    重定向
+4开头    客户端错误     401 402 404
+5开头    服务器错误
+
+
+响应html
+
+
+响应json
+json数据格式
+Python中：
+json.dumps() # 序列化:将本语言(Python)的结构化数据转换为json格式的字符串
+json.loads() # 反序列化:将json格式的字符串转换为本语言(Python)的结构化数据
+JavaScript中：
+JSON.stringify() # 序列化:将JavaScript的对象转换为json格式的字符串
+JSON.parse() # 反序列化:将json格式的字符串转换为JavaScript的对象
+
+注意：浏览器生成的JSON字符串与Pyhton生成的JSON字符串不一样，python生成的键值对逗号与冒号后面有空格。
+所以python做序列化时要：
+json.dumps(data,separators=(',',':'))
