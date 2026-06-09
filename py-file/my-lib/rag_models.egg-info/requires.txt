@@ -1,0 +1,9 @@
+langchain-core>=0.2.0
+langchain-ollama>=0.1.0
+openai>=1.0.0
+chromadb>=0.4.0
+
+[dev]
+pytest>=7.0.0
+black>=23.0.0
+flake8>=6.0.0

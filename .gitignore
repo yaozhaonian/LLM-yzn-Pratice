@@ -1,0 +1,9 @@
+.venv/
+chroma_db/
+data/chroma*/
+*.bin
+*.sqlite3
+.env
+__pycache__/
+.vscode/
+node_modules/
