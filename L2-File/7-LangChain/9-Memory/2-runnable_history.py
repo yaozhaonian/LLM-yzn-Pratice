@@ -7,7 +7,7 @@ from langchain_community.chat_message_histories import ChatMessageHistory
 
 from langchain_core.runnables import RunnableWithMessageHistory
 
-llm = ChatOllama(model="qwen2.5:7b",temperature=0.9)
+llm = ChatOllama(model="qwen2.5:7b",temperature=0.9,base_url="http://127.0.0.1:11434")
 str_parser = StrOutputParser()
 
 template = ChatPromptTemplate(
@@ -61,7 +61,7 @@ print("="*50)
 
 resp_a = chatbot_with_his.invoke(
     {
-        "input": "你好,我想去看看新鲜的最正宗的中药橘红,你知道应该去哪里看吗?", 
+        "input": "你好,我想去品尝的最好吃的肠粉,你知道应该去哪里吃吗?", 
         "language":"中文"
     },
     config_ch

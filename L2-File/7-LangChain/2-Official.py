@@ -16,7 +16,7 @@ def get_user_location() -> str:
     return "广州"
 
 # 使用 ChatOllama（支持 bind_tools）
-llm = ChatOllama(model="qwen2.5:7b", temperature=0.9)
+llm = ChatOllama(model="qwen2.5:7b", temperature=0.9, base_url="http://127.0.0.1:11434")
 
 # 简化 Agent 配置（先测试基础功能）
 agent = create_agent(
@@ -31,4 +31,4 @@ response = agent.invoke(
 print(response)
 print("="*50)
 final_response = response['messages'][-1].content
-print(final_response)   # 哎呀，您这是想听个笑话呢，还是真的关心天气呢？别急，我这就帮您搞清楚了。不过得先知道您位于何方，知晓地理位置，才知道外头在飘哪片云呢。快告诉我您的位置吧！
+print(final_response)

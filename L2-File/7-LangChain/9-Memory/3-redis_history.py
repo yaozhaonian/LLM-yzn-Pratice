@@ -15,7 +15,7 @@ Redis 把聊天内容存在电脑内存（RAM）里,不是存在代码文件夹�
 from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-llm = ChatOllama(model="qwen2.5:7b",temperature=0.9)
+llm = ChatOllama(model="qwen2.5:7b",temperature=0.9,base_url="http://127.0.0.1:11434")
 template = ChatPromptTemplate(
     [
         ("system", "你是一个上知天文下知地理的智能聊天助手"),

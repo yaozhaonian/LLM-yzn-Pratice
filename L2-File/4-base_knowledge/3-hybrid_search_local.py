@@ -11,7 +11,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_ollama import OllamaEmbeddings 
 from langchain_ollama import ChatOllama
 
-llm = ChatOllama(model="qwen2.5:7b",temperature=0.5)
+llm = ChatOllama(model="qwen2.5:7b",temperature=0.5,base_url="http://127.0.0.1:11434")
 
 
 embeddings = OllamaEmbeddings( 
@@ -192,69 +192,84 @@ class MyVectorDBConnector:
 # ======================
 # 混合搜索类
 # ======================
-class HybridSearch:
-    """ 混合搜索(向量 + BM25) """
-    def __init__(self,vector_store: MyVectorDBConnector, bm25_search: BM25Search, alpha: float = 0.5):
-        """
-        初始化混合搜索
-        
-        Args:
-            vector_store: 向量数据库连接器
-            bm25_search: BM25 检索器
-            alpha: 向量搜索权重（0-1）
-        """
+class HybridSearchFixed:
+    """ 修复版混合搜索(向量 + BM25) """
+    def __init__(self, vector_store: MyVectorDBConnector, bm25_search: BM25Search, alpha: float = 0.5):
         self.vector_store = vector_store
         self.bm25_search = bm25_search
         self.alpha = alpha
+        # 保存原始文档引用，用于通过索引查找
+        self.documents = bm25_search.documents
 
     def search(self, query: str, n_results: int = 5) -> List[Dict]:
         """
         执行混合搜索
-        
-        Args:
-            query: 查询文本
-            n_results: 返回结果数量
-            
-        Returns:
-            排序后的结果列表
         """
-        # BM25 搜索
+        total_docs = len(self.documents)
+        
+        # 1. 获取所有文档的 BM25 分数 (已归一化 0-1)
         bm25_scores = self.bm25_search.search(query)
+        
+        # 2. 获取向量搜索结果
+        # 注意：为了准确融合，建议向量搜索也返回足够多的结果，或者至少覆盖高BM25分数的文档
+        # 这里我们让向量搜索返回所有文档，或者至少 top_k 较大
+        vector_results = self.vector_store.search(query, n_results=total_docs)
+        
+        # 3. 处理向量分数
+        vector_distances = vector_results["distances"][0]
+        vector_docs_ids = vector_results["ids"][0] # 获取返回文档的ID
+        
+        # 初始化一个全0数组用于存储每个原始文档的向量分数
+        normalized_vector_scores = np.zeros(total_docs)
+        
+        # 将向量分数映射回原始索引
+        # 假设 ChromaDB 中的 ID 是 'doc_0', 'doc_1' ... 对应原始列表索引
+        for i, doc_id in enumerate(vector_docs_ids):
+            try:
+                # 从 'doc_12' 提取索引 12
+                original_idx = int(doc_id.replace('doc_', ''))
+                dist = vector_distances[i]
+                # 简单的相似度转换: 1 - distance (假设距离越小越相似)
+                # 更好的做法是对向量距离也做 Min-Max 归一化
+                score = 1 - dist 
+                normalized_vector_scores[original_idx] = max(0, score) # 确保非负
+            except:
+                continue
+                
+        # 【重要】对向量分数进行归一化，使其与 BM25 分数量级一致 (0-1)
+        max_v = normalized_vector_scores.max()
+        min_v = normalized_vector_scores.min()
+        if max_v > min_v:
+            normalized_vector_scores = (normalized_vector_scores - min_v) / (max_v - min_v)
+        else:
+            normalized_vector_scores = np.zeros(total_docs)
 
-        # 向量搜索
-        vector_results = self.vector_store.search(query, n_results=len(bm25_scores))
-
-        # 获取向量分数(距离转相似度)
-        vector_distances = vector_results["distances"][0] if vector_results["distances"] else []
-        vector_scores = [1 - d for d in vector_distances]
-
-        # 填充到相同长度
-        while len(vector_scores) < len(bm25_scores): vector_scores.append(0)
-
-        # 加权融合
-        hybrid_scores = []
-        for i in range(len(bm25_scores)):
-            score = self.alpha * vector_scores[i] + (1 - self.alpha) * bm25_scores[i]
-            hybrid_scores.append(score)
-
-        # 获取 Top-N
+        # 4. 加权融合
+        hybrid_scores = self.alpha * normalized_vector_scores + (1 - self.alpha) * bm25_scores
+        
+        # 5. 获取 Top-N 索引
         top_indices = np.argsort(hybrid_scores)[-n_results:][::-1]
-        print("top_indices为:",top_indices)
-
-        # 构建结果
+        
+        # --- 【调试用】打印前5名的分数详情 ---
+        print("\n--- 混合检索调试信息 ---")
+        all_indices_sorted = np.argsort(hybrid_scores)[::-1]
+        for rank, idx in enumerate(all_indices_sorted[:5]):
+            print(f"Rank {rank+1}: Index {idx} | Hybrid: {hybrid_scores[idx]:.4f} | BM25: {bm25_scores[idx]:.4f} | Vec: {normalized_vector_scores[idx]:.4f}")
+            # 打印文档前20个字以便识别
+            print(f"       Doc Preview: {self.documents[idx][:20]}...")
+        print("------------------------\n")
+        
+        # 6. 构建结果
         results = []
         for idx in top_indices:
-             # 安全获取文档和元数据（添加空值检查）
-            doc = vector_results["documents"][0][idx] if idx < len(vector_results['documents'][0]) else None
-            meta = vector_results["metadatas"][0][idx] if idx < len(vector_results['metadatas'][0]) else None
             results.append({
-                "document": doc,
-                "metadata": meta if meta else {},
-                "hybrid_score":float(hybrid_scores[idx]), 
-                "bm25_score":float(bm25_scores[idx]),
-                "vector_score":float(vector_scores[idx])
+                "document": self.documents[idx],
+                "metadata": {}, # 如果需要metadata，需要从vector_store额外查询或预先存储
+                "hybrid_score": float(hybrid_scores[idx]),
+                "bm25_score": float(bm25_scores[idx]),
+                "vector_score": float(normalized_vector_scores[idx])
             })
-
+            
         return results
 
 # ======================
@@ -375,7 +390,7 @@ def load_data(file_path: Path) -> List[Dict]:
 class RAGGenerator:
     """基于检索结果的大模型回答生成器"""
     
-    def __init__(self, llm_client, hybrid_search: HybridSearch):
+    def __init__(self, llm_client, hybrid_search: HybridSearchFixed):
         self.llm_client = llm_client
         self.hybrid_search = hybrid_search
     
@@ -393,7 +408,7 @@ class RAGGenerator:
         
         
         # 构建 Prompt
-        prompt = f"""你是一个专业的问答助手。请**仅根据以下参考知识**回答用户问题。
+        prompt = f"""你是一个专业的问答助手。请根据以下参考知识回答用户问题。
 
 【参考知识】
 {knowledge_text}
@@ -402,16 +417,16 @@ class RAGGenerator:
 {query}
 
 【回答要求】
-1. **必须基于上述参考知识回答**，不要编造信息
-2. 如果参考知识中没有相关信息，直接说"根据知识库内容，没有找到相关信息"
-3. 回答简洁明了，直接给出答案
-4. 不要提及与问题无关的信息
+1. **综合推断**：如果参考知识中提到了相关的线索（如IP地址来源、官方表态、媒体报道等），请据此总结最可能的答案。
+2. **如实陈述**：如果文中提到的是“IP位于某国”或“某国官员回应”，你可以回答“攻击IP主要位于某国”或“某国对此事高度关注/介入调查”，而不必强求文中明确写出“某国发动了攻击”。
+3. **避免遗漏**：只要参考知识中与问题有关联的信息，都请提取出来，不要轻易回答“未找到”。
+4. 只有当参考知识与问题**完全风马牛不相及**时，才回答“根据知识库内容，没有找到相关信息”。
 
 【你的回答】
 """
         return prompt
     
-    def generate(self, query: str, n_results: int = 3) -> Dict:
+    def generate(self, query: str, n_results: int = 6) -> Dict:
         """执行 RAG 生成"""
         search_results = self.hybrid_search.search(query, n_results=n_results)
         prompt = self.build_prompt(query, search_results)
@@ -434,7 +449,7 @@ class RAGGenerator:
             "answer": answer_text
         }
     
-    def chat(self, query: str, n_results: int = 3, verbose: bool = True) -> str:
+    def chat(self, query: str, n_results: int = 6, verbose: bool = True) -> str:
         """简化版聊天接口"""
         result = self.generate(query, n_results)
         
@@ -497,7 +512,7 @@ if __name__ == "__main__":
     vector_store.add_documents(texts=texts, metadatas=metadatas, clear_first=True)
 
     # 初始化混合检索
-    hybrid_search = HybridSearch(vector_store, bm25_search, alpha=0.5)
+    hybrid_search = HybridSearchFixed(vector_store, bm25_search, alpha=0.5)
     
     # 初始化 RAG 生成器
     rag_generator = RAGGenerator(llm, hybrid_search)
@@ -516,6 +531,6 @@ if __name__ == "__main__":
     # 混合检索 + 大模型生成
     print("\n🤖 RAG 生成回答：")
     print('=' * 50)
-    answer = rag_generator.chat(query, n_results=3, verbose=True)
+    answer = rag_generator.chat(query, n_results=6, verbose=True)
 
     print("\n✓ 测试完成！")

@@ -58,7 +58,7 @@ db = SQLDatabase.from_uri(MYSQL_URI)
 # print(db.run('select * from country limit 5'))
 
 from langchain_ollama import ChatOllama
-llm = ChatOllama(model="qwen2.5:7b",temperature=0.9)
+llm = ChatOllama(model="qwen2.5:7b",temperature=0.9,base_url="http://127.0.0.1:11434")
 # template = ChatPromptTemplate(
 #     [
 #         ("system", "你是一个上知天文下知地理的智能聊天助手"),
@@ -106,10 +106,6 @@ import re
 5、工具执行后，把工具执行结果交给大模型，大模型生成最终答案
 """
 
-
-# print("先查看这个查询会返回什么\n",response,"\ntype:",type(response))
-# print("="*25,"再优化返回结果","="*25)
-# 返回的response结果:SQLQuery: SELECT * FROM `country` WHERE `Name` = 'China'
 
 def parse(text: str) -> str:
     """清理 LLM 返回的 SQL，去除多余前缀和标记"""

@@ -1,4 +1,3 @@
-
 # 实现了一个混合搜索系统，结合了 BM25 和 密集向量检索两种方法
 import numpy as np
 from rank_bm25 import BM25Okapi

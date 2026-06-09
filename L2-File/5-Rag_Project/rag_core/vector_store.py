@@ -2,9 +2,7 @@
 import chromadb
 import re
 from typing import List, Dict, Optional
-from pathlib import Path
-from config import CHROMA_DB_DIR, OLLAMA_EMBEDDING_MODEL
-from langchain_chroma import Chroma
+from config import CHROMA_DB_DIR
 from langchain_ollama import OllamaEmbeddings 
 
 

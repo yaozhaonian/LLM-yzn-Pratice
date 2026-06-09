@@ -2,7 +2,7 @@
 ChromaDB RAG 问答系统
 """
 from langchain_community.document_loaders import TextLoader
-from langchain_ollama import OllamaEmbeddings
+from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 import chromadb
 from langchain_chroma import Chroma
@@ -16,7 +16,6 @@ import logging
 from datetime import datetime
 from typing import Optional, List, Dict, Any
 from dataclasses import dataclass, field, asdict
-from langchain_ollama import ChatOllama
 
 # ======================
 # 0. 日志配置

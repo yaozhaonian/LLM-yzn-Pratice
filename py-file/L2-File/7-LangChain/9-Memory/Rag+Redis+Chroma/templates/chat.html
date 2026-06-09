@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="chat-page">
+    <div class="chat-sidebar">
+        <h1>💬 AI 智能问答</h1>
+        <div class="chat-controls">
+            <select id="knowledgeSelect">
+                {% for name, info in knowledge_bases.items() %}
+                <option value="{{ name }}">{{ name }} ({{ info.document_count }} 文档)</option>
+                {% endfor %}
+            </select>
+            <button id="clearMemoryBtn" class="btn btn-warning">🗑️ 清空记忆</button>
+        </div>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-main">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message system">
+                    <div class="message-content">
+                        你好！我是 AI 助手，请选择知识库后开始提问。
+                    </div>
+                </div>
+            </div>
+        
+            <div class="chat-input-area">
+                <textarea id="userInput" placeholder="输入问题，按 Enter 发送（Shift+Enter 换行）" rows="3"></textarea>
+                <button id="sendBtn" class="btn btn-primary">发送</button>
+            </div>
+        </div>
+
+        <div class="chat-status" id="chatStatus"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const chatMessages = document.getElementById('chatMessages');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const knowledgeSelect = document.getElementById('knowledgeSelect');
+    const clearMemoryBtn = document.getElementById('clearMemoryBtn');
+    const chatStatus = document.getElementById('chatStatus');
+
+    // 生成用户 ID（会话级）
+    const userId = 'user_' + Math.random().toString(36).substr(2, 9);
+
+    function appendMessage(role, content) {
+        const div = document.createElement('div');
+        div.className = `message ${role}`;
+        div.innerHTML = `<div class="message-content"><strong>${role === 'user' ? '👤 你' : '🤖 AI'}:</strong><p>${content.replace(/\n/g, '<br>')}</p></div>`;
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    async function sendMessage() {
+        const query = userInput.value.trim();
+        const knowledgeName = knowledgeSelect.value;
+        
+        if (!query || !knowledgeName) return;
+
+        appendMessage('user', query);
+        userInput.value = '';
+        sendBtn.disabled = true;
+        chatStatus.textContent = '🔄 思考中...';
+
+        try {
+            const formData = new FormData();
+            formData.append('query', query);
+            formData.append('knowledge_name', knowledgeName);
+            formData.append('user_id', userId);
+
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            
+            if (response.ok) {
+                appendMessage('assistant', result.answer);
+                chatStatus.textContent = result.has_history ? '💭 基于历史对话回答' : '✅ 回答完成';
+            } else {
+                throw new Error(result.detail || '请求失败');
+            }
+        } catch (error) {
+            appendMessage('assistant', `❌ 错误：${error.message}`);
+            chatStatus.textContent = '⚠️ 请求失败';
+        } finally {
+            sendBtn.disabled = false;
+        }
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    
+    userInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+
+    clearMemoryBtn.addEventListener('click', async () => {
+        if (!confirm('确定要清空当前知识库的对话记忆吗？')) return;
+
+        const formData = new FormData();
+        formData.append('knowledge_name', knowledgeSelect.value);
+        formData.append('user_id', userId);
+
+        const response = await fetch('/api/chat/clear_memory', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            chatMessages.innerHTML = '';
+            chatStatus.textContent = '🗑️ 记忆已清空';
+            appendMessage('assistant', '记忆已清空，我们可以开始新的对话了！');
+        }
+    });
+</script>
+{% endblock %}

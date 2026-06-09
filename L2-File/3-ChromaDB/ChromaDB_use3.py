@@ -1,7 +1,7 @@
 """
 对use2的优化 -- 面向对象
 """
-from langchain_ollama import OllamaEmbeddings, OllamaLLM
+from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
@@ -196,8 +196,8 @@ class RAGApplication:
         self.cache_file = self.script_dir / ".doc_cache.json"
 
         # 初始化组件
-        self.embedding = OllamaEmbeddings(model='bge-m3:latest')
-        self.llm = OllamaLLM(model='qwen2.5:7b',temperature=0.1)
+        self.embedding = OllamaEmbeddings(model='bge-m3:latest',base_url="http://127.0.0.1:11434")
+        self.llm = ChatOllama(model='qwen2.5:7b',temperature=0.1,base_url="http://127.0.0.1:11434")
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size = 150,
             chunk_overlap = 30

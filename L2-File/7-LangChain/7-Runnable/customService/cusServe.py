@@ -16,12 +16,11 @@ import json
 import time
 
 from langchain_ollama import ChatOllama
-llm = ChatOllama(model="qwen2.5:7b",temperature=0.5)
+llm = ChatOllama(model="qwen2.5:7b",temperature=0.5,base_url="http://127.0.0.1:11434")
 
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableLambda, RunnableParallel, RunnableSequence
 
-from langchain_community.chat_message_histories import ChatMessageHistory
 
 import json
 

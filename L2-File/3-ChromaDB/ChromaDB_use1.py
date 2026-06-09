@@ -1,5 +1,5 @@
 # 使用本地向量模型 bge-m3 与回答模型 qwen3.5:2b，加上向量数据库 chroma
-from langchain_ollama import OllamaEmbeddings, OllamaLLM
+from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
@@ -10,8 +10,13 @@ from langchain_core.prompts import PromptTemplate
 # ======================
 # 1. 模型配置
 # ======================
-embedding = OllamaEmbeddings(model='bge-m3:latest')
-llms = OllamaLLM(model='qwen2.5:7b', temperature=0.1)
+llm = ChatOllama(model="qwen2.5:7b",temperature=0.5,base_url="http://127.0.0.1:11434")
+
+
+embeddings = OllamaEmbeddings( 
+    model="bge-m3:latest",
+    base_url="http://127.0.0.1:11434"
+)
 
 # ======================
 # 2. 加载本地文档
@@ -49,7 +54,7 @@ if not file_path:
         encoding='utf-8'
     )
     print(f"✓ 已创建测试文件：{file_path}")
-"""
+r"""
 # 旧的写法
 import os
 script_dir = os.path.dirname(os.path.abspath(__file__))   
@@ -94,7 +99,7 @@ print(f"✓ 切分文本：{len(texts)} 个片段")
 # ======================
 db = Chroma.from_documents(
     documents=texts,
-    embedding=embedding,
+    embedding=embeddings,
     persist_directory="./chroma_db"
 )
 print(f"✓ 向量库创建完成")
@@ -113,7 +118,7 @@ qa_prompt = PromptTemplate.from_template("""
 """)
 
 rag_chain = RetrievalQA.from_chain_type(
-    llm=llms,
+    llm=llm,
     chain_type="stuff",
     retriever=retriever,
     return_source_documents=True,

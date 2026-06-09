@@ -4,7 +4,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 from langchain_community.chat_message_histories import ChatMessageHistory
 
-llm = ChatOllama(model="qwen2.5:7b",temperature=0.9)
+llm = ChatOllama(model="qwen2.5:7b",temperature=0.9,base_url="http://127.0.0.1:11434")
 str_parser = StrOutputParser()
 
 template = ChatPromptTemplate(
