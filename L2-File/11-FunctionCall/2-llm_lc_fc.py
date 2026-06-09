@@ -1,11 +1,8 @@
 import gradio as gr
-import os
 import webbrowser
-import json
-import random
 import datetime
 import subprocess
-from typing import List, Dict, Any
+from typing import List
 
 # LangChain imports
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -73,7 +70,7 @@ tools = [get_date, open_calc, open_browser, recom_drink]
 
 # 注意：确保你的 Ollama 中拉取了 qwen2.5:7b 或更高版本
 # qwen2.5 对 function call 支持较好
-llm = ChatOllama(model="qwen2.5:7b", temperature=0.5)
+llm = ChatOllama(model="qwen2.5:7b", temperature=0.5,base_url="http://127.0.0.1:11434")
 
 # 关键步骤：将工具绑定到 LLM
 # 这会让 LLM 知道它有哪些工具可用，并在需要时返回 tool_calls

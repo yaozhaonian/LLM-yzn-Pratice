@@ -38,12 +38,12 @@ class BaseRetriever:
         self.documents = documents
 
     def get_top_k(self, query: str, k: int = 3) -> List[tuple]:
-        """Retrieve top-k most relevant documents for the query."""
+        """检索与查询最相关的前k个文档。"""
         raise NotImplementedError("Subclasses should implement this method.")
 
 
 class SimpleKeywordRetriever(BaseRetriever):
-    """Ultra-simple keyword matching retriever"""
+    """超简易关键词匹配检索器"""
 
     def __init__(self):
         super().__init__()

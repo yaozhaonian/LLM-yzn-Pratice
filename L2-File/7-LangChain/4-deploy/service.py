@@ -24,7 +24,7 @@ chatprompt = ChatPromptTemplate.from_messages([
 ])
 
 from langchain_ollama import ChatOllama 
-llm = ChatOllama(model="qwen2.5:7b", temperature=0.9)
+llm = ChatOllama(model="qwen2.5:7b", temperature=0.2,base_url="http://127.0.0.1:11434")
 
 chain = chatprompt | llm | parser
 

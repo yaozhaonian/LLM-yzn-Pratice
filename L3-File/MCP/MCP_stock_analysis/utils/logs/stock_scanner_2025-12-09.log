@@ -1,0 +1,91 @@
+2025-12-09 14:19:19.338 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:19:19.338 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:19:19.339 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:19:19.340 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:19:19.340 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:19:23.770 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:19:23.771 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:19:23.771 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:19:23.772 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:19:23.772 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:19:23.866 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:19:23.866 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:19:23.866 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:19:23.868 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:19:23.868 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:19:34.918 | INFO     | mcp_server_integration_remote_mcp:513 - API调用: ali_mcp_search(长沙的著名景点有哪些)
+2025-12-09 14:19:34.918 | INFO     | mcp_server_integration_remote_mcp:531 - 发送搜索请求: URL=https://dashscope.aliyuncs.com/api/v1/mcps/WebSearch/sse, payload={'query': '长沙的著名景点有哪些'}
+2025-12-09 14:20:36.506 | INFO     | mcp_server_integration_remote_mcp:513 - API调用: ali_mcp_search(长沙的景点有哪些)
+2025-12-09 14:20:36.506 | INFO     | mcp_server_integration_remote_mcp:531 - 发送搜索请求: URL=https://dashscope.aliyuncs.com/api/v1/mcps/WebSearch/sse, payload={'query': '长沙的景点有哪些'}
+2025-12-09 14:21:09.221 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:21:09.221 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:21:09.221 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:21:09.222 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:21:09.222 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:21:09.301 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:21:09.301 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:21:09.301 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:21:09.302 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:21:09.303 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:21:40.654 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:21:40.654 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:21:40.654 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:21:40.655 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:21:40.656 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:21:44.082 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:21:44.082 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:21:44.082 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:21:44.083 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:21:44.083 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:21:44.156 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:21:44.156 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:21:44.156 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:21:44.157 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:21:44.158 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:46:07.065 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:46:07.065 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:46:07.065 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:46:07.066 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:46:07.067 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:46:10.547 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:46:10.547 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:46:10.549 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:46:10.550 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:46:10.550 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:46:10.632 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:46:10.632 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:46:10.632 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:46:10.634 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:46:10.634 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:46:24.732 | INFO     | mcp_server_integration_remote_mcp:512 - API调用: ali_mcp_search(长沙的景点有哪些)
+2025-12-09 14:46:24.732 | INFO     | mcp_server_integration_remote_mcp:530 - 发送搜索请求: URL=https://dashscope.aliyuncs.com/api/v1/mcps/WebSearch/sse, payload={'query': '长沙的景点有哪些'}
+2025-12-09 14:47:13.703 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:47:13.704 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:47:13.704 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:47:13.705 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:47:13.705 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:47:17.166 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:47:17.166 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:47:17.166 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:47:17.168 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:47:17.168 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:47:17.249 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:47:17.250 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:47:17.250 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:47:17.251 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:47:17.251 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:47:53.353 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:47:53.353 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:47:53.353 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:47:53.355 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:47:53.355 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:47:56.671 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:47:56.672 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:47:56.672 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:47:56.673 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:47:56.673 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2025-12-09 14:47:56.748 | DEBUG    | tools.stock_data_provider:18 - 初始化StockDataProvider
+2025-12-09 14:47:56.748 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2025-12-09 14:47:56.748 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2025-12-09 14:47:56.750 | DEBUG    | tools.ai_analyzer:41 - 初始化AIAnalyzer: API_URL=https://dashscope.aliyuncs.com/compatible-mode/v1, API_MODEL=qwen-plus-latest, API_KEY=已提供, API_TIMEOUT=60
+2025-12-09 14:47:56.750 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成

@@ -5,13 +5,10 @@ from fastapi.templating import Jinja2Templates
 from pathlib import Path
 import uuid
 from typing import List
-import json
 import hashlib
-import magic
 
-from config import BASE_DIR, DOCUMENTS_DIR, KNOWLEDGE_BASE_DIR, ALLOWED_EXTENSIONS, MAX_FILE_SIZE
+from config import BASE_DIR, DOCUMENTS_DIR, ALLOWED_EXTENSIONS, MAX_FILE_SIZE
 from rag_core.document_loader import DocumentLoader
-from rag_core.vector_store import VectorStore
 from rag_core.rag_engine import RAGEngine
 
 app = FastAPI(title="RAG 知识库问答系统")

@@ -4,7 +4,7 @@ from langchain_core.output_parsers import StrOutputParser, PydanticOutputParser,
 # 纯字符串输出,Pydantic 模型输出,JSON 格式输出,通用列表输出,逗号分隔列表输出,XML 格式输出
 
 from langchain_ollama import ChatOllama 
-llm = ChatOllama(model="qwen2.5:7b", temperature=0.9)
+llm = ChatOllama(model="qwen2.5:7b", temperature=0.1, base_url="http://127.0.0.1:11434")
 
 chatPrompt = ChatPromptTemplate.from_messages([
     SystemMessagePromptTemplate.from_template("你是一个翻译模型，你需要将输入的句子翻译成{language}"),
@@ -59,21 +59,21 @@ chatPrompt2 = PromptTemplate.from_template(
 # print("="*50)
 
 #使⽤RunnableSequence，与链功能一致
-from langchain_core.runnables import RunnableSequence
-chain2 = RunnableSequence(chatPrompt2, llm, pydantic_parser)
-print(chain2.invoke({"question": "中国抗日胜利的日子是？"}))
+# from langchain_core.runnables import RunnableSequence
+# chain2 = RunnableSequence(chatPrompt2, llm, pydantic_parser)
+# print(chain2.invoke({"question": "中国抗日胜利的日子是？"}))
 
 
 # 逗号分隔列表输出
-csl = CommaSeparatedListOutputParser()
+# csl = CommaSeparatedListOutputParser()
 
-chatprompt3 = ChatPromptTemplate.from_messages([
-    ("system", "你是一个专业的程序员"),
-    ("user", "{input}")
-])
+# chatprompt3 = ChatPromptTemplate.from_messages([
+#     ("system", "你是一个专业的程序员"),
+#     ("user", "{input}")
+# ])
 
-chain3 = chatprompt3 | llm | csl
-# print(chain3.invoke({"input": "请列出10个最常用的编程语言"}))
+# chain3 = chatprompt3 | llm | csl
+# print("10个最常用的编程语言",chain3.invoke({"input": "请列出10个最常用的编程语言"}))
 # print("="*50)
 # result = chain3.invoke({"input": "请列出3个常见的机器学习框架"})
 # print(type(result))
@@ -82,22 +82,22 @@ chain3 = chatprompt3 | llm | csl
 # JSON 格式输出
 jso = JsonOutputParser()
 chatprompt4 = ChatPromptTemplate.from_messages([
-    ("system", "你是一个专业的程序员,你复述一遍用户的问题后给出自己的答案"),
+    ("system", "你是一个专业的程序员。请始终以 JSON 格式回答。JSON 应包含 'question' (用户的问题) 和 'answer' (你的回答) 两个字段。"),
     ("user", "{input}")
 ])
 chain4 = chatprompt4 | llm | jso
 """
 一些预构建的结构（如传统的LangChain智能体和链）可能在内部使用输出解析器，因此即使你没有明显地实例化和使用输出解析器，也可能会遇到此错误。
 """
-# result = chain4.invoke({"input": "langchain是什么?"})
-# print(type(result))
-# print(result)
+result = chain4.invoke({"input": "langchain是什么?"})
+print(type(result))
+print(result)
 
 
-# print("="*50)
-# result_js = chain4.invoke({"input": "langchain是什么? 问题用question 回答用ans 返回一个JSON格式"})
-# print(type(result_js))
-# print(result_js)
+print("="*50)
+result_js = chain4.invoke({"input": "langchain是什么? "})
+
+print("第4回答:",result_js)
 """
 "system", "你是一个专业的程序员"
 <class 'dict'>
@@ -108,7 +108,7 @@ chain4 = chatprompt4 | llm | jso
 <class 'dict'>
 {'question': '什么是langchain?', 'ans': 'LangChain 是一个由 LLM（大型语言模型）驱动的开放源代码平台，用于构建和扩展对话式AI应用程序。它旨在为开发者提供一系列API、工具和服务来创建交互式AI助手和其他自然语言处理应用程序。LangChain 使用 Python 编写，并且是基于 Chain 模型进行设计的，该模型通常是一个可以封装多个函数或服务的容器，每个函数或服务都用于执行一项特定的任务。”\n}'}
 """
-# print("="*25,"美化格式","="*25)
-# import json
-# json_str = json.dumps(result_js, indent=2, ensure_ascii=False)
-# print(json_str)
+print("="*25,"美化格式","="*25)
+import json
+json_str = json.dumps(result_js, indent=2, ensure_ascii=False)
+print(json_str)

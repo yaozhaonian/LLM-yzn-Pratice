@@ -1,0 +1,15 @@
+2026-06-10 10:22:32 - RAG - INFO - ==================================================
+2026-06-10 10:22:32 - RAG - INFO - RAG 系统启动
+2026-06-10 10:22:32 - RAG - INFO - 配置：{'model': {'embedding_model': 'bge-m3:latest', 'llm_model': 'qwen2.5:7b', 'temperature': 0.1}, 'chunk': {'chunk_size': 150, 'chunk_overlap': 30}, 'retrieval': {'top_k': 5, 'score_threshold': None}, 'path': {'script_dir': WindowsPath('e:/py-file/L2-File/3-ChromaDB'), 'vector_store_dir': './chroma_db', 'cache_file': '.doc_cache.json', 'log_file': '.rag.log', 'data_dirs': ['text.txt', '../Data/deepseek 百度百科.txt', '../../Data/deepseek 百度百科.txt', 'E:\\py-file\\L2-File\\Data\\deepseek 百度百科.txt']}}
+2026-06-10 10:22:33 - RAG - INFO - 加载缓存文件：e:\py-file\L2-File\3-ChromaDB\.doc_cache.json
+2026-06-10 10:22:33 - RAG - INFO - 开始初始化 RAG 系统
+2026-06-10 10:22:33 - RAG - INFO - 找到文件：E:\py-file\L2-File\3-ChromaDB\text.txt
+2026-06-10 10:22:33 - RAG - INFO - 找到 1 个文档
+2026-06-10 10:22:34 - RAG - INFO - 向量库加载完成：e:\py-file\L2-File\3-ChromaDB\chroma_db, 文档数：219
+2026-06-10 10:22:34 - RAG - INFO - 构建问答链
+2026-06-10 10:22:34 - RAG - INFO - RAG 系统初始化完成
+2026-06-10 10:23:50 - RAG - INFO - 用户提问：DeepSeek👌除了美国外其他国家的攻击有哪些...
+2026-06-10 10:24:14 - RAG - INFO - 获取回答成功
+2026-06-10 10:26:06 - RAG - INFO - 用户提问：有什么国家与DeepSeek进行合作？...
+2026-06-10 10:26:29 - RAG - INFO - 获取回答成功
+2026-06-10 10:33:45 - RAG - INFO - RAG 系统关闭

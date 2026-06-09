@@ -1,12 +1,9 @@
 # 大模型调用工具
 import datetime
-import os
 import webbrowser
-
-from langchain_core.prompts import  PromptTemplate
 from langchain.tools import tool
 from langchain_ollama import ChatOllama
-llm = ChatOllama(model="qwen2.5:7b",temperature=0.5)
+llm = ChatOllama(model="qwen2.5:7b",temperature=0.5,base_url="http://127.0.0.1:11434")
 
 @tool
 def get_date():
@@ -29,7 +26,7 @@ all_tools = {
 llm_tool = llm.bind_tools([get_date, open_browser])
 # resp = llm_tool.invoke("今天是几月几号？")
 resp = llm_tool.invoke("帮我访问淘宝网站？")
-print(resp)
+print("resp",resp)
 
 """
 content='' additional_kwargs={} response_metadata={'model': 'qwen2.5:7b', 'created_at': '2026-04-07T07:08:53.1829609Z', 'done': True, 'done_reason': 'stop', 'total_duration': 2667785000, 'load_duration': 209340900, 'prompt_eval_count': 177, 'prompt_eval_duration': 236171200, 'eval_count': 25, 'eval_duration': 2193410000, 'logprobs': None, 'model_name': 'qwen2.5:7b', 'model_provider': 'ollama'} id='lc_run--019d66c5-c5d1-7932-b307-38193435bf50-0' 
@@ -48,7 +45,7 @@ if resp.tool_calls:
         selected_tool = all_tools.get(tool)
         # 手动执行函数
         result = selected_tool.invoke(tool_args)
-        print(result)
+        print("result",result)
 
 
 

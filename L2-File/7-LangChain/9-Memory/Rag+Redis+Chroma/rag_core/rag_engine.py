@@ -100,7 +100,7 @@ class RAGEngine:
         self.documents = []
         self.doc_ids = []
         self.hybrid_search = None
-        self.llm_client = ChatOllama(model="qwen2.5:7b", temperature=0.1)
+        self.llm_client = ChatOllama(model="qwen2.5:7b", temperature=0.1,base_url="http://127.0.0.1:11434")
         self.memory_manager = MemoryManager()  # 新增：Redis 记忆管理
     
     def load_documents(self, documents: List[Dict]):

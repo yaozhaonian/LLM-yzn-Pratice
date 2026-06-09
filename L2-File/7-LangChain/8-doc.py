@@ -60,7 +60,7 @@ def load_docx_smart(file_name: str) -> list:
         content = "\n".join([para.text for para in doc.paragraphs if para.text.strip()])
         return [LangChainDocument(page_content=content, metadata={"source": file_path})]
 
-llm = ChatOllama(model="qwen2.5:7b", temperature=0.5)
+llm = ChatOllama(model="qwen2.5:7b", temperature=0.5,base_url="http://127.0.0.1:11434")
 strparser = StrOutputParser()
 
 embeddings = OllamaEmbeddings( 

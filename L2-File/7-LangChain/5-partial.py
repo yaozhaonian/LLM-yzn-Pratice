@@ -2,7 +2,7 @@
 #非常适用于动态获得特定变量值的情况，比如日期和时间，某些系统内部配置。这些值是一般是无需用户在每次提问时输入。
 #比如，实现一个学习助手，用户在提问前，先确定要问历史问题，地理问题等等
 from langchain_ollama import ChatOllama
-llm = ChatOllama(model="qwen2.5:7b", temperature=0.9)
+llm = ChatOllama(model="qwen2.5:7b", temperature=0.9,base_url="http://127.0.0.1:11434")
 
 def get_date():
     """返回当前日期"""

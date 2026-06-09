@@ -1,17 +1,27 @@
-# 使用 Ragas 进行评估
-import os
-import sys
+# 使用 Ragas 进行评估 (优化版 v0.4+)
 from pathlib import Path
-from openai import OpenAI
+from langchain_ollama import ChatOllama, OllamaEmbeddings
 import jieba
-import numpy as np
 import pandas as pd
 from datetime import datetime
+import asyncio
+import numpy as np # 🔴 新增：用于处理 NaN
 
 # 🔴 修复：使用 HuggingFace datasets 创建 Dataset
 from datasets import Dataset as HFDataset
 from ragas import evaluate
-from ragas.llms import llm_factory
+
+# 🔴 修复：直接导入指标类并实例化
+from ragas.metrics import (
+    Faithfulness,
+    AnswerRelevancy,
+    ContextPrecision,
+    ContextRecall
+)
+
+# 🔴 新增：导入 Ragas 的 LangChain 包装器
+from ragas.llms import LangchainLLMWrapper
+from ragas.embeddings import LangchainEmbeddingsWrapper
 
 # ======================
 # 配置
@@ -20,50 +30,25 @@ from ragas.llms import llm_factory
 # Data 文件夹路径
 DATA_DIR = Path(__file__).parent.parent.parent / "Data"
 print(f"📁 Data 目录：{DATA_DIR}")
-print(f"📁 目录是否存在：{DATA_DIR.exists()}")
 
-# 🔴 检查 Ollama 可用模型
-def check_ollama_models():
-    """检查 Ollama 中已安装的模型"""
-    try:
-        client = OpenAI(api_key="ollama", base_url="http://localhost:11434/v1")
-        models = client.models.list()
-        model_names = [m.id for m in models.data]
-        print(f"📦 Ollama 可用模型：{model_names}")
-        return model_names
-    except Exception as e:
-        print(f"❌ 无法连接 Ollama: {e}")
-        return []
+# Ollama 配置
+OLLAMA_BASE_URL = "http://127.0.0.1:11434"
+MODEL_NAME = "qwen2.5:7b"      # 聊天模型
+EMBED_MODEL_NAME = "nomic-embed-text" # 嵌入模型 (请确保已运行 ollama pull nomic-embed-text)
 
-# 获取可用模型
-available_models = check_ollama_models()
+# Ollama 客户端 (用于 RAG 生成回答)
+chat_client = ChatOllama(model=MODEL_NAME, base_url=OLLAMA_BASE_URL)
 
-# 🔴 选择可用的模型
-if "qwen2.5:7b" in available_models:
-    MODEL_NAME = "qwen2.5:7b"
-elif "qwen2.5" in available_models:
-    MODEL_NAME = "qwen2.5"
-elif "llama3:latest" in available_models:
-    MODEL_NAME = "llama3:latest"
-elif "llama3" in available_models:
-    MODEL_NAME = "llama3"
-else:
-    MODEL_NAME = available_models[0] if available_models else "qwen2.5:7b"
+# Ollama 嵌入客户端 (用于 Ragas 评估中的向量计算)
+embed_client = OllamaEmbeddings(model=EMBED_MODEL_NAME, base_url=OLLAMA_BASE_URL)
 
-print(f"🤖 使用模型：{MODEL_NAME}")
-
-# Ollama 客户端
-client = OpenAI(
-    api_key="ollama",
-    base_url="http://localhost:11434/v1"
-)
-
-# LLM 配置
-llm = llm_factory(MODEL_NAME, provider="openai", client=client)
+# 🔴 关键修复：将 LangChain 对象包装为 Ragas 兼容对象
+ragas_llm = LangchainLLMWrapper(chat_client)
+ragas_embeddings = LangchainEmbeddingsWrapper(embed_client)
 
 
 # ======================
-# 简单的文档加载和检索
+# 简单的文档加载和检索 (保持不变)
 # ======================
 
 class SimpleRAG:
@@ -83,13 +68,14 @@ class SimpleRAG:
         with open(self.data_file, 'r', encoding='utf-8') as f:
             content = f.read()
         
+        # 简单按双换行符分割
         paragraphs = content.split('\n\n')
         self.documents = [p.strip() for p in paragraphs if len(p.strip()) > 50]
         
         print(f"✅ 加载了 {len(self.documents)} 个文档块")
     
     def _bm25_score(self, query: str, doc: str) -> float:
-        """简单的 BM25 相似度"""
+        """简单的关键词重叠相似度"""
         query_words = set(jieba.lcut(query))
         doc_words = set(jieba.lcut(doc))
         
@@ -135,12 +121,12 @@ class SimpleRAG:
 """
         
         try:
-            response = client.chat.completions.create(
-                model=MODEL_NAME,
-                messages=[{"role": "user", "content": prompt}],
-                temperature=0.7
-            )
-            answer = response.choices[0].message.content
+            # 使用 LangChain 标准的 invoke 方法
+            from langchain_core.messages import HumanMessage
+            
+            response = chat_client.invoke([HumanMessage(content=prompt)])
+            answer = response.content
+            
         except Exception as e:
             print(f"❌ LLM 调用失败：{e}")
             answer = f"调用 LLM 失败：{str(e)}"
@@ -158,10 +144,9 @@ class SimpleRAG:
 
 def create_test_dataset():
     """创建测试数据集"""
-    
     test_data = [
         {
-            "question": "周鸿祎对 DeepSeek 有什么评价？",
+            "question": "周鸿祎对 DeepSeek 有什么表示？",
             "ground_truth": "2025 年 1 月 29 日，360 集团创始人周鸿祎表示，如果 DeepSeek 有需要，360 愿意提供网络安全方面的全力支持。"
         },
         {
@@ -173,7 +158,6 @@ def create_test_dataset():
             "ground_truth": "DeepSeek-R1 在后训练阶段大规模使用了强化学习技术，在仅有极少标注数据的情况下，极大提升了模型推理能力，成本价格低廉，性能与 OpenAI 相当。"
         },
     ]
-    
     return test_data
 
 
@@ -183,67 +167,75 @@ def create_test_dataset():
 
 def save_results_to_csv(results, eval_samples, output_dir: Path):
     """保存评估结果到多个 CSV 文件"""
-    
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     saved_files = []
     
     try:
-        # 方法 1: 保存完整评估结果
-        output_path = output_dir / f"eval_results_{timestamp}.csv"
-        results.to_csv(output_path)
-        saved_files.append(f"📊 评估结果：{output_path.name}")
-        print(f"💾 评估结果已保存到：{output_path}")
-    except Exception as e:
-        print(f"⚠️ 评估结果保存失败：{e}")
-    
-    # 方法 2: 保存详细数据
-    detailed_path = output_dir / f"eval_details_{timestamp}.csv"
-    detailed_data = []
-    for i, sample in enumerate(eval_samples, 1):
-        detailed_data.append({
-            "id": i,
-            "question": sample["question"],
-            "answer": sample["answer"],
-            "ground_truth": sample["ground_truth"],
-            "contexts": " ||| ".join(sample["contexts"]),
-            "contexts_count": len(sample["contexts"])
-        })
-    
-    df_detailed = pd.DataFrame(detailed_data)
-    df_detailed.to_csv(detailed_path, index=False, encoding='utf-8-sig')
-    saved_files.append(f"📝 详细数据：{detailed_path.name}")
-    print(f"💾 详细数据已保存到：{detailed_path}")
-    
-    # 方法 3: 保存分数统计
-    scores_path = output_dir / f"eval_scores_{timestamp}.csv"
-    scores_data = []
-    
-    try:
-        if hasattr(results, 'scores'):
-            column_names = results.scores.column_names if hasattr(results.scores, 'column_names') else []
-            
-            for metric_name in column_names:
-                try:
-                    scores = results.scores[metric_name]
-                    if scores:
-                        avg_score = sum(scores) / len(scores)
-                        scores_data.append({
-                            "metric": metric_name,
-                            "avg_score": round(avg_score, 4),
-                            "min_score": round(min(scores), 4),
-                            "max_score": round(max(scores), 4),
-                            "count": len(scores)
-                        })
-                except Exception as e:
-                    print(f"⚠️ 提取 {metric_name} 分数失败：{e}")
+        # 1. 保存详细数据 (包含原始问答)
+        detailed_path = output_dir / f"eval_details_{timestamp}.csv"
+        detailed_data = []
+        for i, sample in enumerate(eval_samples, 1):
+            detailed_data.append({
+                "id": i,
+                "question": sample["question"],
+                "answer": sample["answer"],
+                "ground_truth": sample["ground_truth"],
+                "contexts": " ||| ".join(sample["contexts"]),
+            })
+        df_detailed = pd.DataFrame(detailed_data)
+        df_detailed.to_csv(detailed_path, index=False, encoding='utf-8-sig')
+        saved_files.append(f"📝 详细数据：{detailed_path.name}")
         
-        if scores_data:
-            df_scores = pd.DataFrame(scores_data)
-            df_scores.to_csv(scores_path, index=False, encoding='utf-8-sig')
-            saved_files.append(f"📈 分数统计：{scores_path.name}")
-            print(f"💾 分数统计已保存到：{scores_path}")
+        # 2. 保存分数统计
+        scores_path = output_dir / f"eval_scores_{timestamp}.csv"
+        scores_data = []
+        
+        # 🔴 修复：统一将结果转换为 DataFrame 处理
+        df_results = None
+        if isinstance(results, pd.DataFrame):
+            df_results = results
+        elif hasattr(results, 'to_pandas'):
+            # 某些版本的 Ragas Result 对象有 to_pandas 方法
+            df_results = results.to_pandas()
+        else:
+            # 如果结果是字典或其他结构，尝试手动转换
+            print(f"⚠️ 未知的结果类型: {type(results)}，尝试直接打印")
+            print(results)
+            return saved_files
+
+        if df_results is not None and not df_results.empty:
+            # 识别数值列（通常是指标分数）
+            numeric_cols = df_results.select_dtypes(include=['number']).columns
+            
+            for col in numeric_cols:
+                # 丢弃 NaN 值进行统计
+                valid_scores = df_results[col].dropna()
+                if not valid_scores.empty:
+                    scores_data.append({
+                        "metric": col,
+                        "avg_score": round(valid_scores.mean(), 4),
+                        "min_score": round(valid_scores.min(), 4),
+                        "max_score": round(valid_scores.max(), 4),
+                        "count": len(valid_scores)
+                    })
+                else:
+                    scores_data.append({
+                        "metric": col,
+                        "avg_score": np.nan,
+                        "min_score": np.nan,
+                        "max_score": np.nan,
+                        "count": 0
+                    })
+
+            if scores_data:
+                df_scores = pd.DataFrame(scores_data)
+                df_scores.to_csv(scores_path, index=False, encoding='utf-8-sig')
+                saved_files.append(f"📈 分数统计：{scores_path.name}")
+            
     except Exception as e:
-        print(f"⚠️ 分数统计保存失败：{e}")
+        print(f"⚠️ 结果保存失败：{e}")
+        import traceback
+        traceback.print_exc()
     
     return saved_files
 
@@ -254,7 +246,7 @@ def save_results_to_csv(results, eval_samples, output_dir: Path):
 
 async def main():
     print("=" * 60)
-    print("开始 RAGAS 评估实验（独立版本）")
+    print("开始 RAGAS 评估实验 (优化版)")
     print("=" * 60)
     
     # 1. 初始化 RAG
@@ -275,9 +267,8 @@ async def main():
     
     for i, item in enumerate(test_data, 1):
         print(f"\n[{i}/{len(test_data)}] 问题：{item['question']}")
-        
         result = rag.query(item['question'])
-        print(f"📝 回答：{result['answer'][:100]}...")
+        print(f"📝 回答：{result['answer'][:80]}...")
         
         eval_samples.append({
             "question": item["question"],
@@ -286,36 +277,23 @@ async def main():
             "ground_truth": item["ground_truth"]
         })
     
-    # 4. 使用 ragas 评估
+    # 4. 使用 Ragas 评估
     print("\n" + "=" * 60)
     print("开始 RAGAS 评估...")
     print("=" * 60)
     
-    # 🔴 修复：使用 RAGAS 0.4+ 正确的 metrics 实例化方式
-    from ragas.metrics import AspectCritic
-    
+    # 实例化指标对象
     metrics = [
-        AspectCritic(
-            name="faithfulness",
-            llm=llm,
-            definition="检查回答是否基于提供的上下文，没有编造信息",
-        ),
-        AspectCritic(
-            name="context_precision",
-            llm=llm,
-            definition="检查检索到的上下文是否与问题相关",
-        ),
-        AspectCritic(
-            name="answer_relevancy",
-            llm=llm,
-            definition="检查回答是否与问题相关，是否直接回答了用户的问题",
-        ),
+        Faithfulness(),          
+        AnswerRelevancy(),      
+        ContextPrecision(),     
     ]
     
-    print(f"📊 使用指标：{[m.name for m in metrics]}")
+    metric_names = [m.__class__.__name__ for m in metrics]
+    print(f"📊 使用指标：{metric_names}")
     
     try:
-        # 🔴 修复：使用 HuggingFace Dataset 创建数据集
+        # 创建 HuggingFace Dataset
         dataset_dict = {
             "question": [s["question"] for s in eval_samples],
             "answer": [s["answer"] for s in eval_samples],
@@ -323,19 +301,20 @@ async def main():
             "ground_truth": [s["ground_truth"] for s in eval_samples],
         }
         
-        # 🔴 使用 HuggingFace 的 Dataset
         dataset = HFDataset.from_dict(dataset_dict)
         print(f"✅ Dataset 创建成功：{len(dataset)} 条样本")
-        print(f"📋 Dataset 列：{dataset.column_names}")
         
+        # 🔴 关键修复：传入包装后的 llm 和 embeddings
         results = evaluate(
             dataset=dataset,
             metrics=metrics,
-            llm=llm
+            llm=ragas_llm,           
+            embeddings=ragas_embeddings, 
+            raise_exceptions=False
         )
         
         print("\n✅ 评估完成！")
-        print(f"\n📊 评估结果:")
+        print(f"\n📊 评估结果预览:")
         print(results)
         
         # 保存结果
@@ -347,16 +326,24 @@ async def main():
         print("📊 评估总结")
         print("=" * 60)
         
-        try:
-            if hasattr(results, 'scores'):
-                column_names = results.scores.column_names if hasattr(results.scores, 'column_names') else []
-                for metric_name in column_names:
-                    scores = results.scores[metric_name]
-                    if scores:
-                        avg = sum(scores) / len(scores)
-                        print(f"{metric_name}: {avg:.4f}")
-        except Exception as e:
-            print(f"⚠️ 打印分数失败：{e}")
+        # 🔴 修复：直接从 DataFrame 打印分数
+        df_results = None
+        if isinstance(results, pd.DataFrame):
+            df_results = results
+        elif hasattr(results, 'to_pandas'):
+            df_results = results.to_pandas()
+            
+        if df_results is not None and not df_results.empty:
+            numeric_cols = df_results.select_dtypes(include=['number']).columns
+            for col in numeric_cols:
+                valid_scores = df_results[col].dropna()
+                if not valid_scores.empty:
+                    avg = valid_scores.mean()
+                    print(f"{col}: {avg:.4f} (有效样本数: {len(valid_scores)})")
+                else:
+                    print(f"{col}: NaN (无有效分数)")
+        else:
+            print("⚠️ 无法解析评估结果以打印摘要")
         
         print("\n✅ 生成的文件:")
         for file in saved_files:
@@ -366,26 +353,7 @@ async def main():
         print(f"\n❌ 评估失败：{e}")
         import traceback
         traceback.print_exc()
-        
-        # 即使评估失败，也保存原始数据
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        failed_path = Path(__file__).parent / f"eval_failed_{timestamp}.csv"
-        
-        failed_data = []
-        for i, sample in enumerate(eval_samples, 1):
-            failed_data.append({
-                "id": i,
-                "question": sample["question"],
-                "answer": sample["answer"],
-                "ground_truth": sample["ground_truth"],
-                "contexts": " ||| ".join(sample["contexts"])
-            })
-        
-        df_failed = pd.DataFrame(failed_data)
-        df_failed.to_csv(failed_path, index=False, encoding='utf-8-sig')
-        print(f"\n💾 原始数据已保存到：{failed_path}")
 
 
 if __name__ == "__main__":
-    import asyncio
     asyncio.run(main())

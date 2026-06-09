@@ -6,7 +6,7 @@
 3.对比文档是否有变化
 4.支持增量添加新文档
 """
-from langchain_ollama import OllamaEmbeddings, OllamaLLM
+from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
@@ -21,8 +21,8 @@ import re
 # ======================
 # 1. 模型配置
 # ======================
-embedding = OllamaEmbeddings(model='bge-m3:latest')
-llms = OllamaLLM(model='qwen2.5:7b', temperature=0.1)
+embedding = OllamaEmbeddings(model='bge-m3:latest',base_url="http://127.0.0.1:11434")
+llms = ChatOllama(model='qwen2.5:7b', temperature=0.1,base_url="http://127.0.0.1:11434")
 
 # ======================
 # 2. 配置路径

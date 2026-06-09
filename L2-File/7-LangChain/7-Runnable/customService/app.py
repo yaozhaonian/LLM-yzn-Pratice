@@ -1,10 +1,8 @@
 from fastapi import FastAPI, Request, HTTPException
-from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
 import json
-import hashlib
 import time
 import traceback
 from typing import List, Dict

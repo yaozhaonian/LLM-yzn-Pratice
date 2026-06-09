@@ -7,7 +7,7 @@ ChromaDB RAG 问答系统 - 完整优化版(继续优化use3版)
 4. 对话历史记录
 5. 向量库统计信息
 """
-from langchain_ollama import OllamaEmbeddings, OllamaLLM
+from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
@@ -65,6 +65,7 @@ class ModelConfig:
     embedding_model: str = "bge-m3:latest"
     llm_model: str = "qwen2.5:7b"
     temperature: float = 0.1
+    base_url="http://127.0.0.1:11434"
 
 
 @dataclass
@@ -77,7 +78,7 @@ class ChunkConfig:
 @dataclass
 class RetrievalConfig:
     """检索配置"""
-    top_k: int = 3
+    top_k: int = 5
     score_threshold: Optional[float] = None
 
 
@@ -473,8 +474,8 @@ class RAGApplication:
         self.logger.info(f"配置：{self.config.to_dict()}")
         
         # 初始化组件
-        self.embedding = OllamaEmbeddings(model=self.config.model.embedding_model)
-        self.llm = OllamaLLM(model=self.config.model.llm_model, temperature=self.config.model.temperature)
+        self.embedding = OllamaEmbeddings(model=self.config.model.embedding_model,base_url=self.config.model.base_url)
+        self.llm = ChatOllama(model=self.config.model.llm_model, temperature=self.config.model.temperature,base_url=self.config.model.base_url)
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=self.config.chunk.chunk_size,
             chunk_overlap=self.config.chunk.chunk_overlap

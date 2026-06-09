@@ -133,7 +133,7 @@ class RAGEngine:
         
         # config = get_ollama_config(llm_model=OLLAMA_LLM_MODEL, temperature=LLM_TEMPERATURE)
         # self.llm_client = ModelClientFactory.get_llm_client(config.llm)
-        self.llm_client = ChatOllama(model="qwen2.5:7b",temperature=0.1)
+        self.llm_client = ChatOllama(model="qwen2.5:7b",temperature=0.1,base_url="http://127.0.0.1:11434")
     
     def load_documents(self, documents: List[Dict]):
         """
