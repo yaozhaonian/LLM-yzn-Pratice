@@ -14,55 +14,56 @@
 ---
 
 ## 📁 项目结构
+```text
 PY-FILE/
-├── .venv/ # Python 虚拟环境（.gitignore 已忽略）
-├── chroma_db/ # 向量数据库（.gitignore 已忽略）
-├── data/ # 通用数据文件
-├── evals/ # 模型与 RAG 评估相关代码
-├── L1-File/ # 入门级基础练习
-│ ├── Algorithm_Fundamentals/ # 算法基础练习
-│ ├── exercise/ # 通用 Python 练习
-│ ├── spider/ # 爬虫相关练习
-│ ├── sql/ # SQL 数据库基础练习
-│ ├── 1-prompt_defend.py # Prompt 注入防御实践
-│ ├── 2-rednote.py # 小红书相关数据处理
-│ ├── 3-webscrap.py # 基础网页爬虫实践
-│ ├── 4-Few-Shot.py # Few-Shot 提示词工程
-│ ├── 5-COT.py # Chain-of-Thought 思维链
-│ ├── 6-Self-Consistency_Counter.py # 自一致性采样
-│ ├── 7-use-local-model.py # 本地模型调用实践
-│ └── 8-TOT.py # Tree-of-Thought 思维树
-├── L2-File/ # 中级进阶练习
-│ ├── 1-doc_split/ # 文档分块与预处理
-│ ├── 2-Ollama/ # Ollama 本地大模型部署
-│ ├── 3-ChromaDB/ # Chroma 向量数据库使用
-│ ├── 4-base_knowledge/ # 基础知识库构建
-│ ├── 5-Rag_Project/ # 基础 RAG 项目实现
-│ ├── 6-Ragas/ # RAG 效果评估（Ragas 框架）
-│ ├── 7-LangChain/ # LangChain 基础与进阶
-│ ├── 11-FunctionCall/ # LLM 函数调用实践
-│ ├── 12-Advance_Rag/ # 高级 RAG 技术（如 HyDE / 多查询）
-│ ├── Data/ # RAG 项目专用数据集
-│ └── 向量数据库对比.md # 向量数据库选型对比笔记
-├── L3-File/ # 高级 / 项目级实践
-│ ├── 1-First_agent.py # 第一个自定义 Agent 实现
-│ ├── 2-Func/ # 高级函数调用与工具集成
-│ ├── 3-Base/ # Agent 基础逻辑构建
-│ ├── 4-Enhance/ # Agent 增强功能（记忆 / 反思）
-│ ├── 5-Human_in_loop/ # 人机协同工作流
-│ ├── 6-Tool_Use/ # 复杂工具链集成
-│ ├── 7-Subgraph/ # LangGraph 子图与状态管理
-│ ├── 8-multi-agent/ # 多智能体协作框架
-│ └── 分析代码常用 ai 语.txt # 代码分析与提示词模板
-├── my-lib/ # 自定义工具库与通用函数
-├── node_modules/ # Node.js 依赖（.gitignore 已忽略）
-├── requirements.txt # Python 项目依赖清单
-├── package.json # Node.js 配置文件
-├── package-lock.json # Node.js 依赖锁文件
-├── summary_cache.json # 摘要缓存文件
-├── .gitignore # Git 忽略配置
-├── LICENSE # MIT 开源协议
-└── README.md # 项目说明（本文件）
+├── .venv/                      # Python 虚拟环境（已通过 .gitignore 忽略）
+├── chroma_db/                  # 向量数据库存储（已通过 .gitignore 忽略）
+├── data/                       # 通用数据文件
+├── evals/                      # 模型与 RAG 评估相关代码
+├── L1-File/                    # 入门级基础练习
+│   ├── Algorithm_Fundamentals/ # 算法基础练习
+│   ├── exercise/               # 通用 Python 练习
+│   ├── spider/                 # 爬虫相关练习
+│   ├── sql/                    # SQL 数据库基础练习
+│   ├── 1-prompt_defend.py      # Prompt 注入防御实践
+│   ├── 2-rednote.py            # 小红书相关数据处理
+│   ├── 3-webscrap.py           # 基础网页爬虫实践
+│   ├── 4-Few-Shot.py           # Few-Shot 提示词工程
+│   ├── 5-COT.py                # Chain-of-Thought 思维链
+│   ├── 6-Self-Consistency_Counter.py # 自一致性采样
+│   ├── 7-use-local-model.py    # 本地模型调用实践
+│   └── 8-TOT.py                # Tree-of-Thought 思维树
+├── 🚀 L2-File/                    # 中级进阶练习
+│   ├── 1-doc_split/            # 文档分块与预处理
+│   ├── 2-Ollama/               # Ollama 本地大模型部署
+│   ├── 3-ChromaDB/            # Chroma 向量数据库使用
+│   ├── 4-base_knowledge/       # 基础知识库构建
+│   ├── 📊 5-Rag_Project/          # 基础 RAG 项目实现
+│   ├── 6-Ragas/                # RAG 效果评估（Ragas 框架）
+│   ├── 7-LangChain/            # LangChain 基础与进阶
+│   ├── 11-FunctionCall/        # LLM 函数调用实践
+│   ├── 12-Advance_Rag/         # 高级 RAG 技术（如 HyDE/多查询）
+│   ├── Data/                   # RAG 项目专用数据集
+│   └── 向量数据库对比.md        # 向量数据库选型对比笔记
+├── 🚀 L3-File/                    # 高级/项目级实践
+│   ├── 1-First_agent.py        # 第一个自定义 Agent 实现
+│   ├── 2-Func/                 # 高级函数调用与工具集成
+│   ├── 3-Base/                 # Agent 基础逻辑构建
+│   ├── 4-Enhance/              # Agent 增强功能（记忆/反思）
+│   ├── 5-Human_in_loop/        # 人机协同工作流
+│   ├── 6-Tool_Use/             # 复杂工具链集成
+│   ├── 7-Subgraph/             # LangGraph 子图与状态管理
+│   ├── 8-multi-agent/          # 多智能体协作框架
+│   └── 分析代码常用 ai 语.txt   # 代码分析与提示词模板
+├── my-lib/                     # 自定义工具库与通用函数
+├── node_modules/               # Node.js 依赖（已通过 .gitignore 忽略）
+├── requirements.txt            # Python 项目依赖清单
+├── package.json                # Node.js 配置文件
+├── package-lock.json           # Node.js 依赖锁文件
+├── summary_cache.json          # 摘要缓存文件
+├── .gitignore                  # Git 忽略配置
+├── LICENSE                     # MIT 开源协议
+└── README.md                   # 项目说明（本文件）
 
 
 ---
