@@ -7,3 +7,4 @@ data/chroma*/
 __pycache__/
 .vscode/
 node_modules/
+*.csv
