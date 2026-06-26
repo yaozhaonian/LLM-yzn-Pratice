@@ -11,8 +11,8 @@ from langchain_core.messages import HumanMessage, AIMessage
 
 import json
 
-embedding = OllamaEmbeddings(model="bge-m3:latest")
-llm = ChatOllama(model='qwen2.5:7b', temperature=0.1)
+embedding = OllamaEmbeddings(model="bge-m3:latest",base_url="http://127.0.0.1:11434")
+llm = ChatOllama(model='qwen2.5:7b', temperature=0.1,base_url="http://127.0.0.1:11434")
 
 
 # 用户的需求

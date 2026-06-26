@@ -39,8 +39,8 @@ docs = loader.load()
 print(f"原始文档数量: {len(docs)}")
 print(f"原始文档总长度: {sum(len(d.page_content) for d in docs)}")
 
-embedding = OllamaEmbeddings(model="bge-m3:latest")
-llm = ChatOllama(model='qwen2.5:7b', temperature=0.1)
+embedding = OllamaEmbeddings(model="bge-m3:latest",base_url="http://127.0.0.1:11434")
+llm = ChatOllama(model='qwen2.5:7b', temperature=0.1,base_url="http://127.0.0.1:11434")
 
 # ======================
 # 2. 父子文档检索 (Parent-Child Retrieval)

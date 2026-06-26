@@ -38,7 +38,7 @@ print(f"原始文档数量: {len(docs)}")
 print(f"原始文档总长度: {sum(len(d.page_content) for d in docs)}")
 
 embedding = OllamaEmbeddings(model="bge-m3:latest")
-llm = ChatOllama(model='qwen2.5:7b', temperature=0.1)
+llm = ChatOllama(model='qwen2.5:7b', temperature=0.1,base_url="http://127.0.0.1:11434")
 
 # 文档分割
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=100)

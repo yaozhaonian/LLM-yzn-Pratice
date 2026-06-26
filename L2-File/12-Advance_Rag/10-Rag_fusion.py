@@ -1,22 +1,17 @@
 # Post-Retrieval后检索-重排序RAG-Fusion
-from pathlib import Path
 import json
 
 # LangChain 组件
 from langchain_core.output_parsers import StrOutputParser
-from langchain_text_splitters import RecursiveCharacterTextSplitter, CharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
-from langchain_core.runnables import RunnableParallel, chain
+from langchain_core.runnables import chain
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 from langchain_chroma import Chroma
-# langchain-core/load/dump/dumps
-# 返回对象的 JSON 字符串表示形式。
-from langchain_core.load import dumps, loads
 
 
-llm = ChatOllama(model='qwen2.5:7b', temperature=0)
-embedding = OllamaEmbeddings(model="bge-m3:latest")
+llm = ChatOllama(model='qwen2.5:7b', temperature=0,base_url="http://127.0.0.1:11434")
+embedding = OllamaEmbeddings(model="bge-m3:latest",base_url="http://127.0.0.1:11434")
 
 texts=[
     "人工智能在医疗诊断中的应用。",

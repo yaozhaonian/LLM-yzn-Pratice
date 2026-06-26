@@ -31,6 +31,8 @@ def l2(a, b):
     return norm(x)
 
 query_vec = get_embedding(query)[0]
+# print("输出1:\n",query_vec)
+# print("="*50)
 doc_vec = get_embedding(documents)
 # print("输出:\n",doc_vec)
 

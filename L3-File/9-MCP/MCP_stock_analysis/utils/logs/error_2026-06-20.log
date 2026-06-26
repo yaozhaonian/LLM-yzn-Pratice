@@ -1,0 +1,6 @@
+2026-06-20 15:43:54.182 | ERROR    | tools.stock_data_provider:121 - 多次重试后仍无法连接数据源
+2026-06-20 15:44:31.921 | ERROR    | tools.stock_data_provider:121 - 多次重试后仍无法连接数据源
+2026-06-20 15:45:10.443 | ERROR    | tools.stock_data_provider:121 - 多次重试后仍无法连接数据源
+2026-06-20 15:45:45.807 | ERROR    | tools.stock_data_provider:121 - 多次重试后仍无法连接数据源
+2026-06-20 16:57:12.784 | ERROR    | tools.stock_data_provider:121 - 多次重试后仍无法连接数据源
+2026-06-20 18:02:33.640 | ERROR    | __main__:247 - 测试过程中发生错误: StockDataProvider._get_stock_data_sync() takes 3 positional arguments but 5 were given

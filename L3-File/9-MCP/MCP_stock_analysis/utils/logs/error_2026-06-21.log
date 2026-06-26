@@ -1,0 +1,8 @@
+2026-06-21 08:43:30.874 | ERROR    | __main__:104 - 获取数据失败: ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 08:43:30.877 | ERROR    | __main__:246 - 测试过程中发生错误: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 09:12:55.798 | ERROR    | __main__:104 - 获取数据失败: Exception: 多次尝试后仍无法连接: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 09:12:55.801 | ERROR    | __main__:262 - 测试过程中发生错误: 多次尝试后仍无法连接: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:10:57.486 | ERROR    | __main__:104 - 获取数据失败: Exception: 多次尝试后仍无法连接: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:10:57.486 | ERROR    | __main__:265 - 测试过程中发生错误: 多次尝试后仍无法连接: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:13:02.972 | ERROR    | __main__:104 - 获取数据失败: Exception: 多次尝试后仍无法连接: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:13:02.974 | ERROR    | __main__:273 - 测试过程中发生错误: 多次尝试后仍无法连接: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))

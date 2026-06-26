@@ -7,7 +7,7 @@ from langchain_core.messages import HumanMessage
 import json
 
 # 初始化
-llm = ChatOllama(model='qwen2.5:7b', temperature=0) # 温度设为0以提高稳定性
+llm = ChatOllama(model='qwen2.5:7b', temperature=0,base_url="http://127.0.0.1:11434") # 温度设为0以提高稳定性
 
 user_input = "我想订一张去昆明的机票去那玩3天"
 
