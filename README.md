@@ -54,6 +54,8 @@ PY-FILE/
 │   ├── 6-Tool_Use/             # 复杂工具链集成
 │   ├── 7-Subgraph/             # LangGraph 子图与状态管理
 │   ├── 8-multi-agent/          # 多智能体协作框架
+│   ├── 9-MCP/                  # MCP模型上下文协议
+│   ├── 10-Copilot/             # erp系统AI辅助助手(在做中……)
 │   └── 分析代码常用 ai 语.txt   # 代码分析与提示词模板
 ├── my-lib/                     # 自定义工具库与通用函数
 ├── node_modules/               # Node.js 依赖（已通过 .gitignore 忽略）
