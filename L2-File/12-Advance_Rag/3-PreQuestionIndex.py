@@ -51,8 +51,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.documents import Document
 from langchain_core.runnables import RunnableParallel
 
-embedding = OllamaEmbeddings(model="bge-m3:latest")
-llm = ChatOllama(model='qwen2.5:7b', temperature=0.1)
+embedding = OllamaEmbeddings(model="bge-m3:latest",base_url="http://127.0.0.1:11434")
+llm = ChatOllama(model='qwen2.5:7b', temperature=0.1,base_url="http://127.0.0.1:11434")
 
 current_dir = Path(__file__).parent
 data_file_path = current_dir.parent / "Data" / "deepseek百度百科.txt"

@@ -21,8 +21,8 @@ from langchain_community.retrievers import BM25Retriever
 from langchain_classic.retrievers import EnsembleRetriever
 #langchain-classic/retrievers/ensemble/EnsembleRetriever
 
-embedding = OllamaEmbeddings(model="bge-m3:latest")
-llm = ChatOllama(model='qwen2.5:7b', temperature=0)
+embedding = OllamaEmbeddings(model="bge-m3:latest",base_url="http://127.0.0.1:11434")
+llm = ChatOllama(model='qwen2.5:7b', temperature=0,base_url="http://127.0.0.1:11434")
 
 # 辅助函数：将文档列表转换为字符串
 def format_docs(docs):

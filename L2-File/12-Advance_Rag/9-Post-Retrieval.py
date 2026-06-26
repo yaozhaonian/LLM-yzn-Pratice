@@ -2,14 +2,9 @@
 # 在完成检索后对检索出的相关知识块做必要补充处理的阶段。比如，对检索的结果借助更专业的排序模型与算法进行重排序或者过滤掉一些不符合条件的知识块等，使得最需要、最合规的知识块处于上下文的最前端，这有助于提高大模型的输出质量。
 
 from pathlib import Path
-import json
 
 # LangChain 组件
-from langchain_core.output_parsers import StrOutputParser
 from langchain_text_splitters import RecursiveCharacterTextSplitter, CharacterTextSplitter
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_ollama import ChatOllama
-from langchain_core.runnables import RunnableParallel
 from langchain_community.document_loaders import TextLoader
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 from langchain_chroma import Chroma
@@ -27,8 +22,8 @@ from langchain_classic.retrievers.document_compressors import LLMChainExtractor,
 from langchain_classic.retrievers.contextual_compression import ContextualCompressionRetriever
 
 
-embedding = OllamaEmbeddings(model="bge-m3:latest")
-llm = ChatOllama(model='qwen2.5:7b', temperature=0)
+embedding = OllamaEmbeddings(model="bge-m3:latest",base_url="http://127.0.0.1:11434")
+llm = ChatOllama(model='qwen2.5:7b', temperature=0,base_url="http://127.0.0.1:11434")
 
 # 辅助函数：将文档列表转换为字符串
 def format_docs(docs):

@@ -1,0 +1,338 @@
+2026-06-22 11:20:45.887 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 11:20:45.887 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 11:20:45.887 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 11:20:45.889 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 11:20:45.889 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 11:20:50.947 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 11:20:50.947 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 11:20:50.947 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 11:20:50.948 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 11:20:50.948 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 11:20:51.151 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 11:20:51.152 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 11:20:51.152 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 11:20:51.153 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 11:20:51.154 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:29:29.086 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:29:29.086 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:29:29.086 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:29:29.086 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:29:29.086 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:29:33.598 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:29:33.598 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:29:33.598 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:29:33.598 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:29:33.598 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:29:33.710 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:29:33.710 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:29:33.710 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:29:33.710 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:29:33.710 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:29:54.828 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:29:54.828 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:29:54.828 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:29:54.828 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:29:54.828 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:29:58.976 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:29:58.976 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:29:58.976 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:29:58.986 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:29:58.986 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:29:59.092 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:29:59.092 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:29:59.093 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:29:59.093 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:29:59.093 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:31:54.456 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:31:54.456 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:31:54.456 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:31:54.456 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:31:54.456 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:31:54.544 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:31:54.544 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:31:54.544 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:31:54.545 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:31:54.545 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:34:56.696 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:34:56.696 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:34:56.696 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:34:56.696 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:34:56.696 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:34:56.777 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:34:56.777 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:34:56.777 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:34:56.777 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:34:56.777 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:55:34.077 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:55:34.077 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:55:34.077 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:55:34.077 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:55:34.087 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:55:34.174 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:55:34.174 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:55:34.174 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:55:34.174 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:55:34.174 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:57:16.837 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:57:16.837 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:57:16.837 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:57:16.837 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:57:16.837 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:57:20.959 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:57:20.959 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:57:20.959 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:57:20.959 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:57:20.960 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 14:57:21.042 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 14:57:21.042 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 14:57:21.042 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 14:57:21.042 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 14:57:21.043 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:01:36.673 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:01:36.676 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:01:36.677 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:01:36.677 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:01:36.677 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:01:36.769 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:01:36.769 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:01:36.769 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:01:36.769 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:01:36.769 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:02:45.524 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:02:45.524 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:02:45.524 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:02:45.524 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:02:45.524 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:02:51.045 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:02:51.046 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:02:51.046 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:02:51.046 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:02:51.047 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:02:51.226 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:02:51.226 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:02:51.226 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:02:51.227 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:02:51.227 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:05:49.443 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:05:49.443 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:05:49.443 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:05:49.443 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:05:49.443 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:05:49.532 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:05:49.532 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:05:49.532 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:05:49.532 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:05:49.532 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:06:39.122 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:06:39.122 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:06:39.122 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:06:39.122 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:06:39.123 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:06:39.208 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:06:39.208 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:06:39.208 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:06:39.208 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:06:39.209 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:08:58.857 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:08:58.857 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:08:58.857 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:08:58.857 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:08:58.857 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:08:58.941 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:08:58.941 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:08:58.941 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:08:58.948 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:08:58.948 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:15:07.608 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:15:07.608 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:15:07.608 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:15:07.608 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:15:07.608 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:15:11.822 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:15:11.822 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:15:11.822 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:15:11.822 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:15:11.824 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:15:12.384 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:15:12.384 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:15:12.384 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:15:12.385 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:15:12.385 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:15:12.507 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:15:12.507 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:15:12.507 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:15:12.508 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:15:12.508 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:15:17.349 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:15:17.349 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:15:17.349 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:15:17.349 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:15:17.349 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:15:17.482 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:15:17.482 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:15:17.482 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:15:17.483 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:15:17.483 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:25:06.778 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:25:06.778 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:25:06.778 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:25:06.778 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:25:06.778 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:25:06.869 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:25:06.869 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:25:06.869 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:25:06.869 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:25:06.869 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:41:03.393 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:41:03.393 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:41:03.393 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:41:03.393 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:41:03.393 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 15:41:03.530 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 15:41:03.531 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 15:41:03.531 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 15:41:03.531 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 15:41:03.531 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 16:00:24.316 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 16:00:24.317 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 16:00:24.317 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 16:00:24.317 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 16:00:24.317 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 16:00:24.445 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 16:00:24.446 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 16:00:24.446 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 16:00:24.446 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 16:00:24.447 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 16:42:46.329 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 16:42:46.329 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 16:42:46.329 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 16:42:46.329 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 16:42:46.330 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 16:42:46.451 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 16:42:46.453 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 16:42:46.453 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 16:42:46.453 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 16:42:46.454 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:06:23.092 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:06:23.092 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:06:23.092 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:06:23.092 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:06:23.092 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:06:23.185 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:06:23.185 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:06:23.185 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:06:23.185 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:06:23.185 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:07:37.118 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:07:37.118 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:07:37.118 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:07:37.118 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:07:37.118 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:07:37.206 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:07:37.206 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:07:37.207 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:07:37.207 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:07:37.207 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:07:55.383 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:07:55.383 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:07:55.383 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:07:55.383 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:07:55.392 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:07:55.472 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:07:55.472 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:07:55.472 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:07:55.472 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:07:55.472 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:09:24.953 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:09:24.953 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:09:24.953 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:09:24.953 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:09:24.953 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:09:25.033 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:09:25.033 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:09:25.033 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:09:25.033 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:09:25.033 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:11:04.863 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:11:04.863 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:11:04.863 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:11:04.863 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:11:04.863 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:11:04.943 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:11:04.943 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:11:04.943 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:11:04.943 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:11:04.943 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:21:05.786 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:21:05.786 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:21:05.786 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:21:05.786 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:21:05.786 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:21:05.884 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:21:05.884 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:21:05.884 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:21:05.885 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:21:05.885 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:26:05.950 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:26:05.950 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:26:05.950 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:26:05.950 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:26:05.950 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:26:06.043 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:26:06.043 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:26:06.043 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:26:06.043 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:26:06.043 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:28:27.930 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:28:27.930 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:28:27.933 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:28:27.933 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:28:27.933 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:28:28.019 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:28:28.019 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:28:28.019 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:28:28.020 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:28:28.020 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:30:16.466 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:30:16.466 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:30:16.466 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:30:16.466 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:30:16.466 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:30:16.558 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:30:16.558 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:30:16.558 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:30:16.558 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:30:16.558 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:30:35.364 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:30:35.364 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:30:35.364 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:30:35.364 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:30:35.364 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:30:39.524 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:30:39.524 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:30:39.524 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:30:39.524 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:30:39.524 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:30:39.609 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:30:39.609 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:30:39.609 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:30:39.613 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:30:39.613 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:34:58.565 | INFO     | easy_server:86 - API调用: ali_mcp_search(白羊座 今日运势)
+2026-06-22 17:34:58.566 | INFO     | easy_server:104 - 发送搜索请求: URL=https://dashscope.aliyuncs.com/api/v1/mcps/WebSearch/mcp, payload={'query': '白羊座 今日运势'}
+2026-06-22 17:35:00.777 | INFO     | easy_server:86 - API调用: ali_mcp_search(白羊座 2023年10月10日运势)
+2026-06-22 17:35:00.777 | INFO     | easy_server:104 - 发送搜索请求: URL=https://dashscope.aliyuncs.com/api/v1/mcps/WebSearch/mcp, payload={'query': '白羊座 2023年10月10日运势'}
+2026-06-22 17:35:26.578 | INFO     | easy_server:86 - API调用: ali_mcp_search(广州夏季旅游景点推荐)
+2026-06-22 17:35:26.578 | INFO     | easy_server:104 - 发送搜索请求: URL=https://dashscope.aliyuncs.com/api/v1/mcps/WebSearch/mcp, payload={'query': '广州夏季旅游景点推荐'}
+2026-06-22 17:35:28.944 | INFO     | easy_server:86 - API调用: ali_mcp_search(广州夏天好玩的景点)
+2026-06-22 17:35:28.944 | INFO     | easy_server:104 - 发送搜索请求: URL=https://dashscope.aliyuncs.com/api/v1/mcps/WebSearch/mcp, payload={'query': '广州夏天好玩的景点'}
+2026-06-22 17:40:36.084 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:40:36.084 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:40:36.084 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:40:36.084 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:40:36.084 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-22 17:40:36.174 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-22 17:40:36.174 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-22 17:40:36.174 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-22 17:40:36.174 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-22 17:40:36.174 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成

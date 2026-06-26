@@ -9,9 +9,9 @@ from langchain_classic.chains.query_constructor.base import get_query_constructo
 
 
 # 1. 初始化组件
-embedding = OllamaEmbeddings(model="bge-m3:latest")
+embedding = OllamaEmbeddings(model="bge-m3:latest",base_url="http://127.0.0.1:11434")
 # 建议：如果可能，使用参数量更大的模型，如 qwen2.5:7b 或 14b，或者使用线上模型，小模型很难严格遵守复杂格式
-llm = ChatOllama(model='qwen2.5:7b', temperature=0.1) 
+llm = ChatOllama(model='qwen2.5:7b', temperature=0.1,base_url="http://127.0.0.1:11434") 
 
 # 2. 加载文档
 docs = [

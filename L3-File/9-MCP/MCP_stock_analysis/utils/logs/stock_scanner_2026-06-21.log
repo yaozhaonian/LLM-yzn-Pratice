@@ -1,0 +1,69 @@
+2026-06-21 08:43:30.753 | INFO     | __main__:227 - 开始测试股票数据获取...
+2026-06-21 08:43:30.753 | DEBUG    | __main__:54 - 初始化StockDataProvider
+2026-06-21 08:43:30.753 | INFO     | __main__:232 - 正在获取 A 股 600519 数据...
+2026-06-21 08:43:30.874 | ERROR    | __main__:104 - 获取数据失败: ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 08:43:30.877 | ERROR    | __main__:246 - 测试过程中发生错误: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 08:52:42.433 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-21 08:52:42.433 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-21 08:52:42.433 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-21 08:52:42.433 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-21 08:52:42.433 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-21 08:52:42.563 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-21 08:52:42.563 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-21 08:52:42.563 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-21 08:52:42.563 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-21 08:52:42.563 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-21 09:12:52.199 | INFO     | __main__:243 - 开始测试股票数据获取...
+2026-06-21 09:12:52.200 | DEBUG    | __main__:54 - 初始化StockDataProvider
+2026-06-21 09:12:52.200 | INFO     | __main__:248 - 正在获取 A 股 600519 数据...
+2026-06-21 09:12:52.286 | WARNING  | __main__:194 - 第 1 次尝试获取 600519 数据失败: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 09:12:53.454 | WARNING  | __main__:194 - 第 2 次尝试获取 600519 数据失败: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 09:12:55.797 | WARNING  | __main__:194 - 第 3 次尝试获取 600519 数据失败: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 09:12:55.798 | ERROR    | __main__:104 - 获取数据失败: Exception: 多次尝试后仍无法连接: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 09:12:55.801 | ERROR    | __main__:262 - 测试过程中发生错误: 多次尝试后仍无法连接: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 09:52:20.115 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-21 09:52:20.116 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-21 09:52:20.116 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-21 09:52:20.116 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-21 09:52:20.116 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-21 09:52:20.274 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-21 09:52:20.275 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-21 09:52:20.275 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-21 09:52:20.275 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-21 09:52:20.276 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-21 10:10:23.343 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-21 10:10:23.343 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-21 10:10:23.343 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-21 10:10:23.343 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-21 10:10:23.343 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-21 10:10:23.438 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-21 10:10:23.440 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-21 10:10:23.440 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-21 10:10:23.440 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-21 10:10:23.440 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-21 10:10:52.720 | INFO     | __main__:246 - 开始测试股票数据获取...
+2026-06-21 10:10:52.723 | DEBUG    | __main__:54 - 初始化StockDataProvider
+2026-06-21 10:10:52.723 | INFO     | __main__:251 - 正在获取 A 股 600519 数据...
+2026-06-21 10:10:54.163 | WARNING  | __main__:197 - 第 1 次尝试获取 600519 数据失败: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:10:55.773 | WARNING  | __main__:197 - 第 2 次尝试获取 600519 数据失败: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:10:57.478 | WARNING  | __main__:197 - 第 3 次尝试获取 600519 数据失败: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:10:57.486 | ERROR    | __main__:104 - 获取数据失败: Exception: 多次尝试后仍无法连接: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:10:57.486 | ERROR    | __main__:265 - 测试过程中发生错误: 多次尝试后仍无法连接: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:12:58.231 | INFO     | __main__:254 - 开始测试股票数据获取...
+2026-06-21 10:12:58.231 | DEBUG    | __main__:54 - 初始化StockDataProvider
+2026-06-21 10:12:58.231 | INFO     | __main__:259 - 正在获取 A 股 600519 数据...
+2026-06-21 10:12:59.833 | WARNING  | __main__:205 - 第 1 次尝试获取 600519 数据失败: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:13:01.433 | WARNING  | __main__:205 - 第 2 次尝试获取 600519 数据失败: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:13:02.970 | WARNING  | __main__:205 - 第 3 次尝试获取 600519 数据失败: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:13:02.972 | ERROR    | __main__:104 - 获取数据失败: Exception: 多次尝试后仍无法连接: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:13:02.974 | ERROR    | __main__:273 - 测试过程中发生错误: 多次尝试后仍无法连接: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-06-21 10:15:25.317 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-21 10:15:25.318 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-21 10:15:25.318 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-21 10:15:25.319 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-21 10:15:25.319 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
+2026-06-21 10:15:25.467 | DEBUG    | tools.stock_data_provider:54 - 初始化StockDataProvider
+2026-06-21 10:15:25.468 | DEBUG    | tools.technical_indicator:31 - 初始化TechnicalIndicator技术指标计算服务，参数: {'ma_periods': {'short': 5, 'medium': 20, 'long': 60}, 'rsi_period': 14, 'bollinger_period': 20, 'bollinger_std': 2, 'volume_ma_period': 20, 'atr_period': 14}
+2026-06-21 10:15:25.468 | DEBUG    | tools.stock_scorer:16 - 初始化StockScorer股票评分服务
+2026-06-21 10:15:25.470 | DEBUG    | tools.ai_analyzer:42 - 初始化AIAnalyzer: API_URL=http://127.0.0.1:11434/v1, API_MODEL=qwen2.5:7b, API_KEY=已提供, API_TIMEOUT=120
+2026-06-21 10:15:25.471 | INFO     | tools.stock_analyzer_service:41 - 初始化StockAnalyzerService完成
