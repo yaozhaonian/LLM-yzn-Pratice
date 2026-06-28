@@ -1,10 +1,21 @@
-.venv/
-chroma_db/
-data/chroma*/
-*.bin
+# 向量数据库缓存
+data/
 *.sqlite3
+*.sqlite3-journal
+summary_cache.json
+
+# Faiss索引文件
+data/faiss_index/
+*.faiss
+*.pkl
+
+# 环境、虚拟环境
 .env
+env.example
+venv/
+.venv/
+
+# Python缓存
 __pycache__/
-.vscode/
-node_modules/
-*.csv
+*.pyc
+*.log
