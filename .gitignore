@@ -19,3 +19,12 @@ venv/
 __pycache__/
 *.pyc
 *.log
+
+# 忽略微调训练产出的模型
+**/output/
+**/checkpoints/
+
+# 忽略原始预训练模型的缓存（如果你不小心把下载的原始模型放在了项目里）
+/models/
+*.safetensors
+*.bin

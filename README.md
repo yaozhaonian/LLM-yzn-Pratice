@@ -98,6 +98,8 @@ PY-FILE/
 git clone https://github.com/yaozhaonian/LLM-yzn-Pratice.git
 cd PY-FILE
 
+### 2. 依赖项
+用到啥安装啥，不要pip install -r requirements.txt，我自己换个电脑都搞不定……
 
 License
 本项目采用 MIT License 开源协议，可自由学习与二次修改。
