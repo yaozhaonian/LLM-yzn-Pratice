@@ -1,3 +1,9 @@
+import os
+import sys
+
+if __package__ is None:
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from customize_milvus_wrapper import CustomizeMilvus
 from models import LargeLanguageModel
 from prompt import create_prompt_hub
