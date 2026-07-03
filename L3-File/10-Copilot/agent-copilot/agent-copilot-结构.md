@@ -1,0 +1,81 @@
+# Directory tree for `/Users/gamsing/py-file/LLM-yzn-Pratice/L3-File/10-Copilot/agent-copilot`
+
+- **agent-copilot/**
+  - app.py  # 项目主入口文件，定义了Flask应用和各种RESTful API接口，包括用户管理、工具管理、任务管理等
+  - **demo/**   # 挺红相关技术栈的基础用法
+    - flask-app.py
+    - milvus_demo.py
+    - mongdb_use.py
+  - **api_data/**
+    - dataset_apis_aliyun.json  # API数据集文件，包含各种API的定义和描述
+  - **tasks/**
+    - __init__.py
+    - generate_task_hub.py    # 任务生成核心逻辑
+    - task_manager.py     # 任务管理器，负责任务的创建、更新和查询
+    - **__pycache__/**
+  - **tools/**
+    - __init__.py
+    - tool_manager.py   # 工具管理器
+    - tool_summary_hub.py   # 工具使用后摘要处理
+    - tool_use_hub.py     # 工具调用处理
+    - **__pycache__/**
+  - **apis/**
+    - __init__.py
+    - api_planning_hub.py   # API规划核心逻辑，负责根据用户需求规划API调用流程
+    - api_selection_hub.py  # API选择逻辑
+    - **__pycache__/**
+  - **param_extraction/**
+    - __init__.py
+    - param_extraction_hub.py   # 参数提取核心逻辑
+    - **__pycache__/**
+  - **entity/**
+    - __init__.py
+    - mongoengine_demo.py
+    - task_entity.py      # 任务实体类
+    - tool_entity.py      # 工具实体类
+    - user_entity.py      # 用户实体类
+    - **__pycache__/**
+  - **utils/**
+    - __init__.py
+    - config.py           # 系统配置文件，包含数据库连接参数、模型参数等
+    - const.py            # 常量定义
+    - function_util.py    # 辅助函数
+    - logger_config.py    # 日志配置
+    - **__pycache__/**
+  - **models/**
+    - __init__.py
+    - embedding_model.py          # 本地嵌入模型相关
+    - llm.py                      # 大模型相关
+    - qwen_reranker_model.py      # 千问重排序模型
+    - remote_embedding_model.py   # 千问嵌入模型
+    - reranker_model.py           # 本地重排序模型
+    - **__pycache__/**
+  - **prompt/**
+    - __init__.py
+    - demo.py
+    - general_prompts.py        # 提示词生成和大模型答复处理
+    - prompt_hub.py
+    - qwen_model_prompts.py     # 千问模型提示词生成和大模型答复处理
+    - **__pycache__/**
+  - **customize_milvus_wrapper/**
+    - __init__.py
+    - customize_milvus.py   # Milvus操作类
+    - **__pycache__/**
+  - **local_embedding/**    # 本地嵌入模型相关
+    - dataset_train.json
+    - new_dataset_train.json
+    - train_embedding.py
+    - **checkpoints/**
+      - **model/**
+    - **output/**
+      - **bge_model/**
+        - config.json
+        - config_sentence_transformers.json
+        - modules.json
+        - sentence_bert_config.json
+        - tokenizer.json
+        - tokenizer_config.json
+  - **user_manager/**
+    - __init__.py
+    - user_manager.py   # 用户管理
+    - **__pycache__/**

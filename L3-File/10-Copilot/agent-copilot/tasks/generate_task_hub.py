@@ -132,7 +132,7 @@ if __name__ == "__main__":
     logger.info(milvus_uri)
     model_path = os.getenv("model_path", "model")
     milvus_db_name = os.getenv("milvus_db_name", "tool_db")
-    model = os.getenv("model", "qwen-max-0919")
+    model = os.getenv("model", "qwen2.5:7b")
     temperature = float(os.getenv("temperature", "0.01"))
     top_p = float(os.getenv("top_p", "0.01"))
     mongo_host = os.getenv("mongo_host", "127.0.0.1")

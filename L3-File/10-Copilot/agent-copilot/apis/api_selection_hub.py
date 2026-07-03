@@ -7,7 +7,7 @@ if __package__ is None:
 from customize_milvus_wrapper import CustomizeMilvus
 from models import LargeLanguageModel
 from prompt import create_prompt_hub
-from tools import tool_manager
+from tools.tool_manager import ToolManager
 from utils import logger
 import traceback
 
@@ -30,7 +30,7 @@ class ApiSelectionHub:
         self.milvus = CustomizeMilvus(milvus_uri, milvus_db_name)
         self.LargeLanguageModel = LargeLanguageModel(api_url, api_key)
         self.PromptModelHub = create_prompt_hub(model)
-        self.ToolManager = tool_manager(mongo_host, mongo_db, mongo_port, milvus_uri, milvus_db_name)
+        self.ToolManager = ToolManager(mongo_host, mongo_db, mongo_port, milvus_uri, milvus_db_name)
         self.model = model
         self.temperature = temperature
         self.top_p = top_p

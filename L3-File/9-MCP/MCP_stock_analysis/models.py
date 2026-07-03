@@ -21,7 +21,7 @@ def get_lc_o_model_client(api_key=os.getenv(ALI_TONGYI_API_KEY_OS_VAR_NAME),
     以OpenAI兼容的方式，通过LangChain获得指定平台和模型的客户端
     可以通过传入api_key，base_url，model，temperature四个参数来覆盖默认值
     verbose，debug两个参数，分别控制是否输出调试信息，是否输出详细调试信息，默认不打印
-    :return: 指定平台和模型的客户端，默认平台和模型为阿里百炼qwen-max-latest，温度=0.7
+    :return: 指定平台和模型的客户端，默认平台和模型为阿里百炼qwen2.5:7b，温度=0.7
     '''
     function_name = inspect.currentframe().f_code.co_name
     if(verbose):

@@ -20,11 +20,12 @@ class CustomizeMilvus:
         - uri: Milvus 数据库的 URI，格式为 "http://{host}:{port}"。
         - db_name: Milvus 数据库的名称。
         """
-        databases = db.list_database()
+        self.client = MilvusClient(uri=uri)
         self.embeddingModel = RemoteEmbeddingModel()
+        databases = self.client.list_databases()
         if db_name not in databases:
-            db.create_database(db_name)
-        self.client = MilvusClient(uri=uri, db_name=db_name)
+            self.client.create_database(db_name)
+        self.client.use_database(db_name)
         
     def list_collections(self):
         """
