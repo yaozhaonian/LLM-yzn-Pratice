@@ -1,7 +1,6 @@
 import json
-import os
 import sys
-
+from utils.config import mongo_user as mongo_user, mongo_password, auth_source
 if __package__ is None:
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -16,7 +15,8 @@ from utils import logger, TASK_ERROR_CODE, TASK_SUCCESS_CODE, RESPONSE_STATUS_CO
 
 class ApiPlanningHub:
     def __init__(self, milvus_uri, model_path, milvus_db_name, model, temperature, top_p,
-                 mongo_host, mongo_db, mongo_port, topK, api_url, api_key):
+                 mongo_host, mongo_db, mongo_port, topK, api_url, api_key,
+                 mongo_user=None, mongo_password=None, auth_source=None):
         """
         初始化 ApiPlanningHub 类的实例。
 
@@ -31,24 +31,32 @@ class ApiPlanningHub:
         :param mongo_port: 端口号，用于网络连接
         :param topK: 检索时返回的前 K 个结果
         """
-        self.apiSelectionHub = ApiSelectionHub(milvus_uri, model_path, milvus_db_name, model, temperature, top_p,
-                                                mongo_host, mongo_db, mongo_port, api_url, api_key)
+        self.apiSelectionHub = ApiSelectionHub(
+            milvus_uri,
+            model_path,
+            milvus_db_name,
+            model,
+            temperature,
+            top_p,
+            mongo_host,
+            mongo_db,
+            mongo_port,
+            api_url,
+            api_key,
+            mongo_user=mongo_user,
+            mongo_password=mongo_password,
+            auth_source=auth_source,
+        )
         self.topK = topK
         self.paramExtractionHub = ParamExtractionHub(model, temperature, top_p, api_url, api_key)
         self.toolSummaryHub = ToolSummaryHub(model, temperature, top_p, api_url, api_key)
         self.toolUseHub = ToolUseHub("")
-        self.generateTaskHub = GenerateTaskHub(model, temperature, top_p, api_url, api_key, mongo_host, mongo_db, mongo_port, milvus_uri, milvus_db_name)
-        self.taskManager = TaskManager(mongo_host, mongo_db, mongo_port)
+        self.generateTaskHub = GenerateTaskHub(model, temperature, top_p, api_url, api_key, mongo_host, mongo_db, mongo_port, milvus_uri, milvus_db_name, mongo_user=mongo_user, mongo_password=mongo_password, auth_source=auth_source)
+        self.taskManager = TaskManager(mongo_host, mongo_db, mongo_port, mongo_user=mongo_user, mongo_password=mongo_password, auth_source=auth_source)
         self.llm = LargeLanguageModel(api_url, api_key)
         self.model = model
         self.temperature = temperature
         self.top_p = top_p
-        
-    def generate_output(self, text):
-        prompt = " 请将以下句子进行润色成通顺的话，请直接输出结果：\n\n\n" + text
-        print(prompt)
-        result = self.llm.chat_completions(prompt, self.model, self.temperature, self.top_p)
-        return result
 
     def convert_inter_result(self, task_id, results, model_output, isEnd):
         nodes = []

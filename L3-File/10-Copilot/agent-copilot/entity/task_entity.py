@@ -8,6 +8,7 @@ class Task(Document):
     edges = ListField(DictField())  # 连线/边数组，数组内每个元素是字典
     isSuccess = StringField()       # 是否执行成功，字符串（"true"/"false"）
     systemOutput = StringField()    # 系统输出日志、执行结果文本
+    isEnd = IntField(default=0)     # 任务是否结束，0未结束，1已结束
     
     def to_dict(self):
         """将 Task 对象转换为字典"""
@@ -17,7 +18,8 @@ class Task(Document):
             'nodes': self.nodes,
             'edges': self.edges,
             'isSuccess': self.isSuccess,
-            'systemOutput': self.systemOutput
+            'systemOutput': self.systemOutput,
+            'isEnd': self.isEnd
         }
 
 """

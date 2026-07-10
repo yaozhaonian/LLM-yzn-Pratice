@@ -129,5 +129,5 @@ def mesh_query():
         return jsonify({'message': str(e),'fail':'is fail'})
 
 if __name__ == "__main__":
-    print("Swagger访问地址：http://127.0.0.1:5001/apidocs")
-    app.run(debug=False, host='0.0.0.0', port=5001)
+    print("Swagger访问地址：http://127.0.0.1:5005/apidocs")
+    app.run(debug=False, host='0.0.0.0', port=5005)

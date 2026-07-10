@@ -81,6 +81,16 @@ class PromptModelHub:
             如果是单个API工具任务，请回答‘是’；如果是多API工具任务，请回答“否”。
             并提供用自然语言描述的第一个子任务请求语句来找到相应的API。
             
+            注意规则：
+            1. 单纯基础信息查询，一般属于单工具任务；
+            2. 查询单个商品、单个订单、单个物流供应商相关信息，属于单工具任务；
+            3. 创建单个订单、新增单个商品，只用一个工具就能完成，属于单工具任务；
+            4. 涉及发货、配送、运输的任务通常是多工具任务，需要按以下步骤规划：
+               - 第一步：查询商品信息（获取产品ID、库存、产地）
+               - 第二步：查询能够配送目标区域的物流公司
+               - 第三步：创建订单
+            5. 如果用户没有指定数量，默认数量为1；如果没有指定具体地址，使用用户提到的城市。
+            
             回复格式如下:
             单一API工具任务:是/否
             第一个子任务描述:用自然语言描述的一个子任务，用来寻找相应的API
@@ -90,6 +100,12 @@ class PromptModelHub:
             示例1输出:
             单一API工具任务:否
             第一个子任务描述:查询苹果的产品信息
+
+            示例2:
+            用户请求:帮我把荔枝发货到北京
+            示例2输出:
+            单一API工具任务:否
+            第一个子任务描述:查询荔枝的产品信息
         
             用户请求:{query}
             请直接输出答案，不要输出任何额外的信息和思考过程。    
@@ -591,12 +607,24 @@ class PromptModelHub:
         返回:
             Tuple[bool, str]: 任务是否完成，以及下个任务的描述；任务完成，则返回 self.stop_label。
         """
+        # 错误检测：如果 LLM 返回错误消息
+        if answer.startswith("Error:"):
+            logger.error(f"LLM 返回错误: {answer}")
+            return True, answer  # 作为停止标识，将错误返回给上层处理
+        
         x = answer.strip().split("\n")
+        if len(x) < 1:
+            logger.error(f"post_process_gen_root_task: 无效的 LLM 输出格式，输出内容: {answer}")
+            return True, f"Error: Invalid LLM output format"
+        
         is_single_task = x[0]
         
         if "yes" in (is_single_task.split(":")[-1]).lower():
             return True, self.stop_label
         else:
+            if len(x) < 2:
+                logger.error(f"post_process_gen_root_task: 多任务模式但缺少第二行，输出内容: {answer}")
+                return True, f"Error: Missing subtask description in LLM output"
             root_task_description = x[1].split(":")[-1]
             return False, root_task_description
 

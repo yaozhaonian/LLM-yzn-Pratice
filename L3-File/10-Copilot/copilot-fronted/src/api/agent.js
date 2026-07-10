@@ -2,7 +2,7 @@
 
 import { BaseRoot } from './baseRoot';
 import axios from 'axios';
-import { getAuthHeader, clearAccessToken } from '../utils/auth';
+import { getAuthHeader, clearAccessToken } from './auth';
 
 // 添加请求拦截器确保所有请求都包含认证头
 // 请求拦截器 request.interceptors（发请求前自动执行）
@@ -11,10 +11,10 @@ axios.interceptors.request.use(
   (config) => {
     // 为所有非登录/注册请求添加认证头
     if (!config.url.includes('/login_user') && !config.url.includes('/register_user')) {
-      const authHeader = getAuthHeader();
+      // const authHeader = getAuthHeader();
       config.headers = {
         ...config.headers,
-        ...authHeader
+        // ...authHeader
       };
     }
     console.log('请求配置:', config); // 调试日志
@@ -95,7 +95,7 @@ export const ApiPlanningApi = async (data) => {
   return axios.post(`${BaseRoot}/api_planning`, data)
 };
 // 查询任务执行状态
-export const ApiTaskStatusApi = async (data) => {
+export const TestTaskStatusApi = async (data) => {
   return axios.post(`${BaseRoot}/api_task_status`, data)
 }; 
 

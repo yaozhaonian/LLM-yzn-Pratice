@@ -11,9 +11,43 @@ class TaskManager:
 
     __init__ 方法获得访问数据库的连接和设置并发控制。
     """
-    def __init__(self, mongo_host, mongo_db, mongo_port):
-        self.mongoClient = connect(db=mongo_db, host=mongo_host, port=mongo_port)
-        self.cache_lock = threading.Lock()
+    def __init__(
+        self,
+        mongo_host,
+        mongo_db,
+        mongo_port,
+        mongo_user=None,
+        mongo_password=None,
+        auth_source=None,
+    ):
+        self.mongo_host = mongo_host
+        self.mongo_db = mongo_db
+        self.mongo_port = mongo_port
+        self.mongo_user = mongo_user
+        self.mongo_password = mongo_password
+        self.auth_source = auth_source
+
+        try:
+            disconnect(alias="default")
+        except Exception:
+            pass
+
+        kwargs = {
+            "host": self.mongo_host,
+            "db": self.mongo_db,
+            "port": self.mongo_port,
+            "alias": "default",
+        }
+        if self.mongo_user and self.mongo_password:
+            kwargs.update(
+                {
+                    "username": self.mongo_user,
+                    "password": self.mongo_password,
+                    "authentication_source": self.auth_source or self.mongo_db,
+                }
+            )
+
+        self.mongo_client = connect(**kwargs)
         
     def create_task(self):
         while True:
@@ -31,30 +65,22 @@ class TaskManager:
         task.save()
         return task_id
     
-    def update_task(self, task_id, isSuccess, isEnd, systemOutput, nodes, edges):
-        try:
-            task = Task.objects(task_id=task_id)
-            if not task:
-                logger.warning(f"任务 {task_id} 不存在")
-                return None
-            
-            logger.info(f"更新任务 {task_id}: nodes={nodes}, edges={edges}, systemOutput={systemOutput}, isSuccess={isSuccess}, isEnd={isEnd}")
-            if isEnd:
-                task.isSuccess = isSuccess
-                task.status = -1
-            else:
-                task.status = task.status + 1
-                task.isSuccess = "任务实时执行调用情况"
-                
-            task.nodes = nodes
-            task.edges = edges
-            task.systemOutput = systemOutput
-            task.save()
-            
-            return task_id
-        except Exception as e:
-            logger.error(f"任务[{task_id}]保存失败: {e}\n{traceback.format_exc()}")
-        return None
+    def update_task(self, task_id, nodes, edges, systemOutput, errMsg, isEnd):
+        task = Task.objects(task_id=task_id).first()
+        if task is None:
+            logger.error(f"任务[{task_id}]未找到")
+            return False
+
+        if isEnd:
+            task.status = -1
+        else:
+            task.status = task.status + 1
+        task.nodes = nodes
+        task.edges = edges
+        task.systemOutput = systemOutput
+        task.isEnd = 1 if isEnd else 0
+        task.save()
+        return True
 
     def get_task_by_id(self, task_id):
         try:
@@ -66,6 +92,9 @@ class TaskManager:
         except Exception as e:
             logger.error(f"任务[{task_id}]获取失败: {e}\n{traceback.format_exc()}")
             return None
+        
+    def get_task(self, task_id):
+        return Task.objects(task_id=task_id).first()
 
 if __name__ == "__main__":
     task_manager = TaskManager("localhost", "tools", 27017)

@@ -1,0 +1,8 @@
+- [x] Checkpoint 1: api_selection_hub.py 中 ToolManager 只实例化一次，无重复实例化
+- [x] Checkpoint 2: tool_manager.py 中 clear_cache() 方法只定义一次，无重复定义
+- [x] Checkpoint 3: tool_manager.py 中 insert_tools() 返回 new_tools 而不是 tools
+- [x] Checkpoint 4: tool_use_hub.py 中无未使用导入
+- [x] Checkpoint 5: api_planning_hub.py 中无未使用方法和变量
+- [x] Checkpoint 6: 所有修改文件 Python 语法检查通过（python -m py_compile）
+- [x] Checkpoint 7: 所有修改文件无 PEP 8 违规警告（flake8/pylint）
+- [x] Checkpoint 8: 修复后的代码功能行为保持不变，API 接口正常工作

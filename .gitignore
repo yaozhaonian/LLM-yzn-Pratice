@@ -28,3 +28,18 @@ __pycache__/
 /models/
 *.safetensors
 *.bin
+
+# Mac系统垃圾文件
+.DS_Store
+__MACOSX/
+
+# 日志文件
+logs/*.log
+logs/*.log.*
+
+# 前端临时备份图片
+*image copy.png
+
+# 如果你暂时不上传docker部署文件，加这两行
+L3-File/10-Copilot/copilot-fronted/Dockerfile
+L3-File/10-Copilot/copilot-fronted/docker-compose-standalone.yml

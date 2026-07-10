@@ -2,6 +2,7 @@
 import json
 import hashlib
 from typing import List, Optional
+import os
 
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 from langchain_chroma import Chroma
@@ -21,6 +22,7 @@ class RerankerModel:
         k_retrieval: int = 4,
         k_rrf: int = 60
     ):
+        self._disable_proxy_env()
         self.k_rrf = k_rrf
         self.base_url = base_url
         
@@ -62,6 +64,12 @@ class RerankerModel:
             | StrOutputParser() 
             | self.parse_queries
         )
+
+    @staticmethod
+    def _disable_proxy_env():
+        for name in ("HTTP_PROXY", "HTTPS_PROXY", "http_proxy", "https_proxy", "ALL_PROXY", "all_proxy"):
+            os.environ.pop(name, None)
+        os.environ["NO_PROXY"] = "127.0.0.1,localhost"
 
     @staticmethod
     def parse_queries(output: str) -> List[str]:
@@ -118,13 +126,14 @@ class RerankerModel:
     def create_from_texts(
         cls, 
         texts: List[str], 
-        persist_directory: str, 
+        persist_directory: Optional[str] = None, 
         **kwargs  # 用来接收 llm_model, base_url, k_rrf 等其他参数
     ):
         """
         静态工厂方法：先用文本建好向量库，再初始化 RerankerModel
         """
         # 注意：这里必须和 __init__ 里的模型名保持一致
+        cls._disable_proxy_env()
         embedding_model = kwargs.get('embedding_model', 'bge-m3:latest')
         base_url = kwargs.get('base_url', 'http://127.0.0.1:11434')
         
@@ -135,16 +144,20 @@ class RerankerModel:
         )
         
         # 创建持久化的向量库
-        vectorstore = Chroma.from_texts(
-            texts=texts,
-            embedding=temp_embedding,
-            persist_directory=persist_directory
-        )
-        
-        # 调用正常的 __init__，把建好的 vectorstore 传进去，同时透传其他参数
+        if persist_directory:
+            vectorstore = Chroma.from_texts(
+                texts=texts,
+                embedding=temp_embedding,
+                persist_directory=persist_directory
+            )
+        else:
+            vectorstore = Chroma.from_texts(
+                texts=texts,
+                embedding=temp_embedding
+            )
         return cls(
-            vectorstore=vectorstore, 
-            persist_directory=persist_directory, 
+            vectorstore=vectorstore,
+            persist_directory=persist_directory,
             **kwargs
         )
 

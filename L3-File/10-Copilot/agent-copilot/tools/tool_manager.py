@@ -1,4 +1,5 @@
 from utils import logger
+from utils.config import mongo_user as mongo_user, mongo_password as CFG_MONGO_PASSWORD, auth_source as CFG_AUTH_SOURCE
 import json
 import time
 from customize_milvus_wrapper import CustomizeMilvus
@@ -6,10 +7,11 @@ from entity import Parameter, Tool
 from typing import List, Optional
 from models import RerankerModel
 import os
-from mongoengine import *
+from mongoengine import connect, get_db, connection
 import threading
 from cachetools import TTLCache
 from langchain_chroma import Chroma
+from langchain_ollama import OllamaEmbeddings
 
 class ToolManager:
     def __init__(
@@ -18,44 +20,76 @@ class ToolManager:
         milvus_uri, milvus_db_name,
         texts: Optional[List[str]] = None,  # 这里必须要保留！作为“投递口”
         vectorstore: Optional[Chroma] = None,
+        mongo_user: Optional[str] = None,
+        mongo_password: Optional[str] = None,
+        auth_source: Optional[str] = None,
         # 下面是 Reranker 的配置参数，暴露给上层
         reranker_persist_dir: str = "./chroma_db",
+        persist_directory: Optional[str] = None,
         llm_model: str = 'qwen2.5:7b',
+        embedding_model: str = "bge-m3:latest",
         base_url: str = "http://127.0.0.1:11434"
     ):
-        # 1. 初始化 MongoDB 和 Milvus（你的原有逻辑）
-        try:
-            # 检查是否已有连接
-            existing_connection = get_connection()
-            if existing_connection:
-                disconnect()  # 断开现有连接
-        except Exception as e:
-            logger.warning(f"检查ToolManager的已有MongoDB连接: {e}，已重建连接 。")
-        self.mongoClient = connect(mongo_db, host=mongo_host, port=mongo_port)
+        # 使用传入凭据或配置中的凭据
+        user = mongo_user
+        pwd = mongo_password or CFG_MONGO_PASSWORD
+        auth = auth_source or CFG_AUTH_SOURCE
+        # 仅在没有默认连接时建立连接，避免重复注册 alias
+        if 'default' not in connection._connections:
+            connect(
+                db=mongo_db,
+                host=mongo_host,
+                port=mongo_port,
+                username=user,
+                password=pwd,
+                authentication_source=auth
+            )
+            logger.info("已建立 MongoDB 连接 (带认证)")
+        else:
+            logger.info("复用已有 MongoDB 连接")
         self.db_name = mongo_db
         self.cache_lock = threading.Lock()
         self.tool_cache = TTLCache(maxsize=100, ttl=3600)
         self.milvus = CustomizeMilvus(milvus_uri, milvus_db_name)
-        
-        # 2. 核心：根据参数灵活初始化 Reranker
-        if vectorstore:
-            # 如果直接给的是现成的 vectorstore，直接加载
-            self.reranker = RerankerModel(vectorstore=vectorstore)
+        self.embedding = OllamaEmbeddings(
+            model=embedding_model,
+            base_url=base_url
+        )
+
+        self.vectorstore = None
+        self.reranker = None
+
+        if vectorstore is not None:
+            self.vectorstore = vectorstore
+            self.reranker = RerankerModel(
+                vectorstore=self.vectorstore,
+                embedding_model=embedding_model,
+                base_url=base_url,
+                llm_model=llm_model,
+                persist_directory=persist_directory or reranker_persist_dir
+            )
         elif texts:
-            # 如果给的是原始文本，调用工厂方法（新建库）
             self.reranker = RerankerModel.create_from_texts(
                 texts=texts,
-                persist_directory=reranker_persist_dir,
-                llm_model=llm_model,
-                base_url=base_url
+                persist_directory=persist_directory or reranker_persist_dir,
+                embedding_model=embedding_model,
+                base_url=base_url,
+                llm_model=llm_model
             )
-        else:
-            # 如果都没给，从默认磁盘路径加载现有数据
-            self.reranker = RerankerModel(
-                persist_directory=reranker_persist_dir,
-                llm_model=llm_model,
-                base_url=base_url
+            self.vectorstore = self.reranker.vectorstore
+        elif persist_directory:
+            self.vectorstore = Chroma(
+                embedding_function=self.embedding,
+                persist_directory=persist_directory
             )
+            if self.vectorstore._collection.count() > 0:
+                self.reranker = RerankerModel(
+                    vectorstore=self.vectorstore,
+                    embedding_model=embedding_model,
+                    base_url=base_url,
+                    llm_model=llm_model,
+                    persist_directory=persist_directory
+                )
 
     def clear_cache(self):
         """
@@ -122,7 +156,11 @@ class ToolManager:
     基于 MongoDB 的 find_one_and_update + $inc 原子操作，多线程 / 多进程并发调用不会出现重复 ID。
     """
     def get_next_tool_id(self):
-        db = self.mongoClient[self.db_name]
+        """
+        从 MongoDB 生成自增 tool_id
+        """
+        # 直接用 mongoengine 管理的数据库连接，而不是 self.mongoClient
+        db = get_db()
         counter = db["counters"].find_one_and_update(
             {"_id": "tool_id"},
             {"$inc": {"sequence_value": 1}},
@@ -138,16 +176,7 @@ class ToolManager:
             tool.save()
             new_tools.append(tool)
         self.milvus.insert_tools("tools", new_tools)
-        return tools
-
-    def clear_cache(self):
-        """
-        工具缓存清除方法。该方法清除工具缓存中的所有工具。
-        """
-        with self.cache_lock:
-            tool_ids = self.tool_cache.keys()
-            for tool_id in tool_ids:
-                self.tool_cache.pop(tool_id, None)
+        return new_tools
 
     def get_tools_by_ids_from_mongo(self, tool_ids: List[int]):
         """
@@ -351,14 +380,22 @@ class ToolManager:
             list: 重排序后的工具列表
         """
         # 1. 向量检索获取候选工具ID
-        candidate_tool_ids = self.milvus.get_docs("tools", query, topk=top_k)
+        candidate_tool_ids = self.milvus.get_docs("tools", query, top_k=top_k)
         # 2. 从MongoDB获取候选工具详细信息
         candidate_tools = self.get_tools_by_ids(candidate_tool_ids)
-        # 3. 准备重排序的文本
+        
+        if not candidate_tools:
+            return []
+        
+        # 3. 如果重排序模型未初始化，直接返回向量检索结果
+        if self.reranker is None:
+            return candidate_tools[:final_top_n]
+        
+        # 4. 准备重排序的文本
         candidates_for_rerank = [f"{tool.name_for_human}: {tool.description}" for tool in candidate_tools]
-        # 4. 重排序
+        # 5. 重排序
         reranked_indices = self.reranker.rerank(query, candidates_for_rerank)
-        # 5. 根据重排序结果整理最终工具列表
+        # 6. 根据重排序结果整理最终工具列表
         final_tools = [candidate_tools[i] for i in reranked_indices]
 
         return final_tools[:final_top_n]

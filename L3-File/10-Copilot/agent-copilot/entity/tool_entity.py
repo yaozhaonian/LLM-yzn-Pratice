@@ -28,6 +28,7 @@ class Tool(Document):
     operationId = StringField() # 工具操作 ID，用于唯一标识工具的操作
     api_url = StringField() # 工具 API 接口 URL，用于调用工具的接口
     path = StringField()    # 工具 API 访问路径
+    method = StringField(required=True) 
     request_body = ListField(EmbeddedDocumentField(Parameter))  # 工具请求体参数列表
 
 

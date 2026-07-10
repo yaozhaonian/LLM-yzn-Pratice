@@ -19,13 +19,13 @@ import { ApiOutlined, ThunderboltOutlined, LogoutOutlined } from '@ant-design/ic
  * ThunderboltOutlined：闪电、快速执行
  * LogoutOutlined:登出图标，一般放在右上角退出登录按钮旁
  */
-import { clearAccessToken } from '../utils/auth'
 
 const { Sider } = Layout;
 
+
 export default function AppSider() {
-    const collapsed = useState(false);
     const navigate = useNavigate();
+    const [collapsed, setCollapsed] = useState(false)
 
     const menuItems = [
         {
@@ -43,10 +43,9 @@ export default function AppSider() {
     ];
 
     const handleLogout = () => {
-        clearAccessToken();
-        if (typeof window !== 'undefined') {
-            navigate('/login');
-        }
+        // 退出登录逻辑（需根据实际认证方案实现）
+        localStorage.removeItem('token');
+        window.location.href = '/login';
     };
 
     return (

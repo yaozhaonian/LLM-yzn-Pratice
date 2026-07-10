@@ -20,8 +20,12 @@ topK = int(os.getenv("topK", "5"))
 model_api_key = os.getenv('DASHSCOPE_API_KEY')
 model_base_url = os.getenv("model_base_url")
 sim_api_key = os.getenv("sim_api_key")
-SECRET_KEY = os.getenv('SECRET_KEY', 'yaozhaonian@yzn.com')
+SECRET_KEY = os.getenv('SECRET_KEY', '32194910012008080820260101782365')
 JWT_ALGORITHM = os.getenv('JWT_ALGORITHM', 'HS256')
+# 新增：Mongo 认证信息（优先从环境变量读取；本地无认证可留空）
+mongo_user = os.getenv("mongo_user", "")          # e.g. "admin" or "" for no auth
+mongo_password = os.getenv("mongo_password", "")  # e.g. "s3cr3t" or "" for no auth
+auth_source = os.getenv("auth_source", "admin")   # auth DB, 常用 "admin"
 
 # 如果 os.getenv 返回 None 或 空字符串，则使用 "1"
 local_mode = int(os.getenv("local_mode") or "1")

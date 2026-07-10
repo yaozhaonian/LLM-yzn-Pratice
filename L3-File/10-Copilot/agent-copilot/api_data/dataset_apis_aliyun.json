@@ -6,8 +6,8 @@
     },
     "servers": [
         {
-            "url": "http://121.43.198.13:8080",
-            "description": "Generated server url"
+            "url": "http://127.0.0.1:8080",
+            "description": "Local mock API server"
         }
     ],
     "paths": {

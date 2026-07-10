@@ -1,10 +1,9 @@
-from requests import Response
-
+from requests.models import Response
 from entity import Tool
 import requests
 from utils import logger, RESPONSE_STATUS_CODE_ERROR
 import traceback
-from tools.tool_manager import ToolManager
+
 sim_api_key = "hihachengfeng"
 class ToolUseHub:
     def __init__(self, name):
@@ -38,33 +37,38 @@ class ToolUseHub:
                         param_request[param.name] = requestBody[param.name]
                         requestBody.pop(param.name)
 
-            # 创建包含API密钥的请求头
-            headers = {"X-API_Key": sim_api_key}
-            # 对于需要JSON请求体的请求，添加content-type头部
+            headers = {"X-API-Key": sim_api_key}
             if len(requestBody.keys()) > 0:
-                headers["content-type"] = "application/json"
+                headers["Content-Type"] = "application/json"
 
+            logger.info(f"[tool_use] method={tool.method.upper()}, url={url}, param_request={param_request}, requestBody={requestBody}, headers={headers}")
+            
+            session = requests.Session()
+            session.trust_env = False
+            
             if len(requestBody.keys()) == 0:
-                if len(param_request.keys()) == 0:  # 无请求体 + 无查询参数，示例：GET https://xxx/api/user/1
-                    response = requests.request(tool.method.upper(), url, headers=headers)
-                else:   # 无请求体 + 有查询参数，示例：GET https://xxx/api/list?page=1&size=10
-                    response = requests.request(tool.method.upper(), url,params=param_request, headers=headers)
+                if len(param_request.keys()) == 0:
+                    response = session.request(tool.method.upper(), url, headers=headers)
+                else:
+                    response = session.request(tool.method.upper(), url, params=param_request, headers=headers)
             else:
-                if len(param_request.keys()) == 0:  # 有请求体 + 无查询参数，示例：POST https://xxx/api/add 携带 body {"name":"xxx"}
-                    response = requests.request(tool.method.upper(), url, json=requestBody, headers=headers)
-                else:   # 有请求体 + 同时带查询参数
-                    response = requests.request(tool.method.upper(), url, params=param_request,json=requestBody, headers=headers)
+                if len(param_request.keys()) == 0:
+                    response = session.request(tool.method.upper(), url, json=requestBody, headers=headers)
+                else:
+                    response = session.request(tool.method.upper(), url, params=param_request, json=requestBody, headers=headers)
 
             # 读取接口剩余调用次数
             remaining_calls = response.headers.get('X-Remaining-Calls', 'N/A')
             logger.info(f"API 调用成功，剩余调用次数: {remaining_calls}")
 
             logger.info(f"API调用返回状态码: {response.status_code}")
+            return response
         except Exception as e:
             logger.error(f"调用工具[{url}：{requestBody}]失败: {e}\n{traceback.format_exc()}")
             return response
 
 if __name__ == "__main__":
+    from tools.tool_manager import ToolManager
     toolUseHub = ToolUseHub("test")
     toolManager = ToolManager('localhost', "tools", 27017, "http://127.0.0.1:19530", "tool_db")
     tool = toolManager.get_tools_by_ids([15])[0]

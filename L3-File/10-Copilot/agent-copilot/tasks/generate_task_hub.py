@@ -23,13 +23,13 @@ class GenerateTaskHub:
         top_p (float): 核采样的概率阈值。
     """
 
-    def __init__(self, model, temperature, top_p, api_url, api_key, mongo_host, mongo_db, mongo_port, milvus_uri, milvus_db_name):
+    def __init__(self, model, temperature, top_p, api_url, api_key, mongo_host, mongo_db, mongo_port, milvus_uri, milvus_db_name, mongo_user=None, mongo_password=None, auth_source=None):
         # 初始化大模型调用客户端（传入大模型接口地址、密钥）
         self.LargeLanguageModel = LargeLanguageModel(api_url, api_key)
         # 根据当前选用的大模型，创建对应提示词模板中心
         self.PromptModelHub = create_prompt_hub(model)
         # 初始化工具管理器：传入Mongo向量库连接信息，用来读取全部工具API
-        self.ToolManager = ToolManager(mongo_host, mongo_db, mongo_port, milvus_uri, milvus_db_name)
+        self.ToolManager = ToolManager(mongo_host, mongo_db, mongo_port, milvus_uri, milvus_db_name, mongo_user=mongo_user, mongo_password=mongo_password, auth_source=auth_source)
         # 全局保存LLM生成超参，所有任务生成复用
         self.model = model
         self.temperature = temperature
