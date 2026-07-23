@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP智能客服系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="chat-container">
+        <!-- 顶部导航 -->
+        <header class="chat-header">
+            <div class="header-title">
+                <div class="logo">🤖</div>
+                <h1>ERP智能客服系统</h1>
+            </div>
+            <div class="header-actions">
+                <span class="status online">在线</span>
+                <button class="btn-clear" onclick="clearChat()">清空对话</button>
+            </div>
+        </header>
+
+        <!-- 对话列表 -->
+        <main class="chat-messages" id="chatMessages">
+            <!-- 欢迎消息 -->
+            <div class="message bot-message">
+                <div class="avatar">🤖</div>
+                <div class="message-content">
+                    <div class="message-text">
+                        您好！我是ERP智能客服助手，请问有什么可以帮您的？<br><br>
+                        您可以咨询以下业务：<br>
+                        - 📋 订单查询<br>
+                        - 📦 库存查询<br>
+                        - 🏭 生产进度查询<br>
+                        - 💳 货款查询<br>
+                        - 🚚 发货校验与申请<br>
+                        - 📖 知识库问答<br><br>
+                        例如："查询订单ORD202607170001的状态" 或 "给上海科技有限公司发货10个工业控制主板"
+                    </div>
+                    <div class="message-time">刚刚</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 输入区域 -->
+        <footer class="chat-input-area">
+            <div class="input-wrapper">
+                <textarea 
+                    id="userInput" 
+                    placeholder="请输入您的问题..." 
+                    rows="3"
+                    onkeydown="handleKeyDown(event)"
+                ></textarea>
+            </div>
+            <div class="input-actions">
+                <button class="btn-send" id="btnSend" onclick="sendMessage()">
+                    <span>发送</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13"></path>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                    </svg>
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
