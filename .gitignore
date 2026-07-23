@@ -43,3 +43,9 @@ logs/*.log.*
 # 如果你暂时不上传docker部署文件，加这两行
 L3-File/10-Copilot/copilot-fronted/Dockerfile
 L3-File/10-Copilot/copilot-fronted/docker-compose-standalone.yml
+
+# 依赖包、构建缓存
+node_modules/
+*/.cache/
+dist/
+build/
